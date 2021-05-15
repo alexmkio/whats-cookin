@@ -1,11 +1,12 @@
 import { expect } from 'chai';
+import Recipe from '../src/classes/Recipe';
 import RecipeRepository from '../src/classes/RecipeRepository';
 
-describe('Recipe', () => {
+describe('RecipeRepository', () => {
 
-  let recipe
+  let recipe1, recipe2, recipes
   beforeEach(() => {
-    recipe = new RecipeRepository({
+    recipe1 = new Recipe({
       "id": 123456,
       "image": "https://cafedelites.com/wp-content/uploads/2018/04/Best-Chicken-Tikka-Masala-IMAGE-1.jpg",
       "ingredients": [
@@ -40,20 +41,41 @@ describe('Recipe', () => {
         "chicken",
       ]
     })
+    recipe2 = new Recipe({
+      "id": 987654,
+      "image": "https://cdn.sallysbakingaddiction.com/wp-content/uploads/2018/10/moist-banana-bread.jpg",
+      "ingredients": [
+        {
+          "id": 1123,
+          "name": "eggs",
+          "estimatedCostInCents": 472
+        },
+        {
+          "id": 19335,
+          "name": "sucrose",
+          "estimatedCostInCents": 902
+        },
+      ],
+      "instructions": [
+        {
+          "instruction": "Preheat oven to 350 degrees F (175 degrees C). Lightly grease a 9x5 inch loaf pan.",
+          "number": 1
+        },
+        {
+          "instruction": "In a large bowl, combine flour, baking soda and salt. In a separate bowl, cream together butter and brown sugar. Stir in eggs and mashed bananas until well blended. Stir banana mixture into flour mixture; stir just to moisten. Pour batter into prepared loaf pan.",
+          "number": 2
+        },
+      ],
+      "name": "Banana Banana Bread",
+      "tags": [
+        "dessert",
+        "breakfast",
+      ]
+    })
+    recipes = new RecipeRepository([recipe1, recipe2]);
   })    
 
   it('Should be a function', () => {
     expect(RecipeRepository).to.be.a('function');
   });
-
-  it('Should take in recipe object', () => {
-    expect(recipe).to.be.an.instanceof(RecipeRepository);
-    expect(recipe.id).to.deep.equal(123456);
-    expect(recipe.image).to.deep.equal("https://cafedelites.com/wp-content/uploads/2018/04/Best-Chicken-Tikka-Masala-IMAGE-1.jpg");
-    expect(recipe.ingredients[1].id).to.deep.equal(18372);
-    expect(recipe.instructions[1].instruction).to.deep.equal("Preheat a grill for high heat.");
-    expect(recipe.name).to.deep.equal("Chicken Tikka Masala");
-    expect(recipe.tags[1]).to.deep.equal("chicken");
-  });
-
 })
