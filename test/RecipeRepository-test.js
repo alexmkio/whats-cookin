@@ -49,6 +49,11 @@ describe('Recipe', () => {
   it('Should take in recipe object', () => {
     expect(recipe).to.be.an.instanceof(RecipeRepository);
     expect(recipe.id).to.deep.equal(123456);
+    expect(recipe.image).to.deep.equal("https://cafedelites.com/wp-content/uploads/2018/04/Best-Chicken-Tikka-Masala-IMAGE-1.jpg");
+    expect(recipe.ingredients[1].id).to.deep.equal(18372);
+    expect(recipe.instructions[1].instruction).to.deep.equal("Preheat a grill for high heat.");
+    expect(recipe.name).to.deep.equal("Chicken Tikka Masala");
+    expect(recipe.tags[1]).to.deep.equal("chicken");
   });
 
 })
