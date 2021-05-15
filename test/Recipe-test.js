@@ -67,4 +67,8 @@ describe('Recipe', () => {
     expect(recipe.name).to.deep.equal("Chicken Tikka Masala");
     expect(recipe.tags[1]).to.deep.equal("chicken");
   });
+
+  it('Should determine the names of ingredients needed', () => {
+    expect(recipe.necessaryIngredients).to.deep.equal(["wheat flour", "bicarbonate of soda"]);
+  });
 })
