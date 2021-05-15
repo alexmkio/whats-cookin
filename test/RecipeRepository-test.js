@@ -46,4 +46,9 @@ describe('Recipe', () => {
     expect(RecipeRepository).to.be.a('function');
   });
 
+  it('Should take in recipe object', () => {
+    expect(recipe).to.be.an.instanceof(RecipeRepository);
+    expect(recipe.id).to.deep.equal(123456);
+  });
+
 })
