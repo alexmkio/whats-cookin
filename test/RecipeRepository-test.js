@@ -10,14 +10,14 @@ describe('Recipe', () => {
       "image": "https://cafedelites.com/wp-content/uploads/2018/04/Best-Chicken-Tikka-Masala-IMAGE-1.jpg",
       "ingredients": [
         {
-          "id": 00001,
+          "id": 20081,
           "quantity": {
             "amount": 1.5,
             "unit": "c"
           }
         },
         {
-          "id": 00002,
+          "id": 18372,
           "quantity": {
             "amount": 0.5,
             "unit": "tsp"
@@ -45,6 +45,5 @@ describe('Recipe', () => {
   it('Should be a function', () => {
     expect(RecipeRepository).to.be.a('function');
   });
-})
 
-});
+})
