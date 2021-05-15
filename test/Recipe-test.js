@@ -72,4 +72,9 @@ describe('Recipe', () => {
     recipe.findIngredientNames(ingredients)
     expect(recipe.necessaryIngredients).to.deep.equal(["wheat flour", "bicarbonate of soda"]);
   });
+
+  it('Should get the cost of its ingredients', () => {
+    recipe.calculateCostOfIngredients(ingredients)
+    expect(recipe.calculateCostOfIngredients()).to.equal((1.5 * 142) + (0.5 * 582));
+  });
 })
