@@ -3,7 +3,7 @@ import Recipe from '../src/classes/Recipe';
 
 describe('Recipe', () => {
 
-  let recipe
+  let recipe, ingredients
   beforeEach(() => {
     recipe = new Recipe({
       "id": 123456,
@@ -40,6 +40,18 @@ describe('Recipe', () => {
         "chicken",
       ]
     })
+    ingredients = [
+      {
+        "id": 20081,
+        "name": "wheat flour",
+        "estimatedCostInCents": 142
+      },
+      {
+        "id": 18372,
+        "name": "bicarbonate of soda",
+        "estimatedCostInCents": 582
+      },
+    ]
   })    
 
   it('Should be a function', () => {
