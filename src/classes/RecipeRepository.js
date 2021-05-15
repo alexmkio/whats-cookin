@@ -1,7 +1,7 @@
 class RecipeRepository {
-  constructor() {
+  constructor(thisRecipe) {
+    this.id = thisRecipe.id;
 
-    // One class to get you started!
   }
 }
 
