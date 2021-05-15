@@ -69,6 +69,7 @@ describe('Recipe', () => {
   });
 
   it('Should determine the names of ingredients needed', () => {
+    recipe.findIngredientNames(ingredients)
     expect(recipe.necessaryIngredients).to.deep.equal(["wheat flour", "bicarbonate of soda"]);
   });
 })
