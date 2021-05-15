@@ -21,6 +21,45 @@ class Recipe {
       return acc;
     }, []);
   }
+  // calculateCostOfIngredients(ingredients) {
+  //   //reduce to find
+  //   console.log('THIS OBJECT', this.ingredients)
+  //   console.log('INGREDIENTS', ingredients)
+
+  //   const totalCost = ingredients.reduce((acc, item) => {
+  //     ingredients.find(ingredient => {
+
+  //     })
+  //     // console.log(this.ingredients[0].id)
+  //     if(this.ingredients[0].id === item.id){
+  //       acc += this.ingredients.quantity.amount * ingredients.estimatedCostInCents
+  //     }
+  //     return acc;
+  //   }, 0);
+  //   return totalCost;
+  // }
+
+// pass in ingredient = [{id:, cost:}]
+// this.ingredients = [{id:, amount:}]
+// if ingredient[index].id = ingredients[index].id
+// return += ingredient[index].cost * ingredients[index].amount
+//   returnDirections() {
+//     // this.instructions.forEach(item => console.log(`${item.number}: ${item.instruction}`))
+//     // look into MAP
+
+//     const directions = this.instructions.reduce((acc, item) => {
+//       acc=`${item.number}: ${item.instruction}`
+//       console.log(acc)
+//       return acc
+//     }, '');
+//     return directions
+//   }
 }
+
+// const dogs = [ 
+//   {name: "Fido", numLegs: 4}, 
+//   {name: "Greg", numLegs: 5} 
+// ];
+// dogs.forEach(dog => console.log((`${dog.name} has ${dog.numLegs} legs.`)))
 
 export default Recipe;
