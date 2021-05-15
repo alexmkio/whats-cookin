@@ -1,6 +1,3 @@
-// const data = require('./src/data/ingredients');
-// const ingredients = data.ingredientsData;
-
 class Recipe {
   constructor(thisRecipe) {
     this.id = thisRecipe.id;
@@ -43,23 +40,10 @@ class Recipe {
 // this.ingredients = [{id:, amount:}]
 // if ingredient[index].id = ingredients[index].id
 // return += ingredient[index].cost * ingredients[index].amount
-//   returnDirections() {
-//     // this.instructions.forEach(item => console.log(`${item.number}: ${item.instruction}`))
-//     // look into MAP
-
-//     const directions = this.instructions.reduce((acc, item) => {
-//       acc=`${item.number}: ${item.instruction}`
-//       console.log(acc)
-//       return acc
-//     }, '');
-//     return directions
-//   }
+  returnDirections() {
+    const directions = this.instructions.map(item => `${item.number}: ${item.instruction}`);
+    return directions.join(' ')
+  }
 }
-
-// const dogs = [ 
-//   {name: "Fido", numLegs: 4}, 
-//   {name: "Greg", numLegs: 5} 
-// ];
-// dogs.forEach(dog => console.log((`${dog.name} has ${dog.numLegs} legs.`)))
 
 export default Recipe;
