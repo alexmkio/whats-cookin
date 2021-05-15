@@ -18,28 +18,14 @@ class Recipe {
       return acc;
     }, []);
   }
-  // calculateCostOfIngredients(ingredients) {
-  //   //reduce to find
-  //   console.log('THIS OBJECT', this.ingredients)
-  //   console.log('INGREDIENTS', ingredients)
-
-  //   const totalCost = ingredients.reduce((acc, item) => {
-  //     ingredients.find(ingredient => {
-
-  //     })
-  //     // console.log(this.ingredients[0].id)
-  //     if(this.ingredients[0].id === item.id){
-  //       acc += this.ingredients.quantity.amount * ingredients.estimatedCostInCents
-  //     }
-  //     return acc;
-  //   }, 0);
-  //   return totalCost;
-  // }
-
-// pass in ingredient = [{id:, cost:}]
-// this.ingredients = [{id:, amount:}]
-// if ingredient[index].id = ingredients[index].id
-// return += ingredient[index].cost * ingredients[index].amount
+  calculateCostOfIngredients(ingredients) {
+    const totalCost = ingredients.reduce((acc, ingredient) => {
+      let foundIngredient = this.ingredients.find(currentIngredient => currentIngredient.id === ingredient.id)
+      acc += foundIngredient.quantity.amount * ingredient.estimatedCostInCents
+      return acc
+    }, 0)
+    return totalCost
+  }
   returnDirections() {
     const directions = this.instructions.map(item => `${item.number}: ${item.instruction}`);
     return directions.join(' ')
