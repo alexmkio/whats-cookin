@@ -52,7 +52,7 @@ describe('Recipe', () => {
         "estimatedCostInCents": 582
       },
     ]
-  })    
+  })
 
   it('Should be a function', () => {
     expect(Recipe).to.be.a('function');
@@ -74,7 +74,6 @@ describe('Recipe', () => {
   });
 
   it('Should get the cost of its ingredients', () => {
-    recipe.calculateCostOfIngredients(ingredients)
-    expect(recipe.calculateCostOfIngredients()).to.equal((1.5 * 142) + (0.5 * 582));
+    expect(recipe.calculateCostOfIngredients(ingredients)).to.equal((1.5 * 142) + (0.5 * 582));
   });
 })
