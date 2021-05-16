@@ -13,7 +13,13 @@ describe('Ingredient', () => {
 
   it('should be a function', () => {
     expect(Ingredient).to.be.a('function');
-  })
+  });
+
+  it('should have an id', () => {
+    expect(ingredient1.id).to.equal(9079);
+    expect(ingredient2.id).to.equal(11935);
+    expect(ingredient3.id).to.not.equal(9079);
+  });
 
 
 })

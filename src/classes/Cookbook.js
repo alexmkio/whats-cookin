@@ -8,7 +8,7 @@ class Cookbook {
   }
   filterByNameOrIng(nameOrIng) {
     console.log(ingredientsData)
-   
+
   }
 }
 
