@@ -21,5 +21,11 @@ describe('Ingredient', () => {
     expect(ingredient3.id).to.not.equal(9079);
   });
 
+  it('should have a name', () => {
+    expect(ingredient1.name).to.equal('dried cranberries');
+    expect(ingredient2.name).to.equal('catsup');
+    expect(ingredient3.name).to.not.equal('catsup');
+  })
+
 
 })
