@@ -85,5 +85,11 @@ describe('RecipeRepository', () => {
 
   it('Should filter list of recipes based on one or more tags', () => {
     expect(recipes.filterByTag('dessert')).to.deep.equal([recipe2]);
+    expect(recipes.filterByTag('dessert')).to.not.deep.equal([recipe1]);
+  });
+
+  it('Should filter list of recipes based on its name or ingredients', () => {
+    expect(recipes.filterByNameOrIng('Chicken Tikka Masala')).to.deep.equal([recipe1]);
+    expect(recipes.filterByNameOrIng('Chicken Tikka Masala')).to.not.deep.equal([recipe2]);
   });
 })
