@@ -25,6 +25,12 @@ describe('Ingredient', () => {
     expect(ingredient1.name).to.equal('dried cranberries');
     expect(ingredient2.name).to.equal('catsup');
     expect(ingredient3.name).to.not.equal('catsup');
+  });
+
+  it('should have a cost', () => {
+    expect(ingredient1.estimatedCostInCents).to.equal(921);
+    expect(ingredient2.estimatedCostInCents).to.equal(666);
+    expect(ingredient3.estimatedCostInCents).to.not.equal(666)
   })
 
 
