@@ -3,7 +3,7 @@ import Ingredient from '../src/classes/Ingredient';
 import GroceryStore from '../src/classes/GroceryStore';
 
 describe('Grocery Store', () => {
-  let ingredientList, defaultIngredientList, ingredientData, ingredientRepo;
+  let ingredientList, ingredientData, ingredientRepo;
   beforeEach(() => {
     ingredientData = [
       {
@@ -48,5 +48,6 @@ describe('Grocery Store', () => {
 
   it('Should take in an array of object', () => {
     expect(ingredientRepo.ingredients).to.deep.equal(ingredientData)
+    expect(ingredientRepo.ingredients).to.not.deep.equal([])
   })
 });

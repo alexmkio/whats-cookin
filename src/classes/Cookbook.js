@@ -6,8 +6,11 @@ class Cookbook {
     const filteredByTag = this.cookbook.filter(item => item.tags.includes(tag));
     return filteredByTag
   }
-  filterByNameOrIng(nameOrIng) {
-    console.log(ingredientsData)
+  filterByName(recipeName) {
+    const filteredName = this.cookbook.filter(item => item.name.includes(recipeName));
+    return filteredName
+  }
+  filterByIngredient() {
 
   }
 }
