@@ -7,7 +7,6 @@ class Cookbook {
   }
   filterByName(recipeName) {
     return this.cookbook.filter(item => item.name.includes(recipeName));
-
   }
   filterByIngredient(ingredientName, ingredientRepo) {
   let foundIngredient = ingredientRepo.ingredients.find(ingredient => ingredient.name === ingredientName)
