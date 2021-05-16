@@ -1,3 +1,4 @@
 node_modules/
 test/Ingredients-test.js
 src/classes/Ingredients.js
+src/scripts.js
