@@ -1,5 +1,5 @@
 class GroceryStore {
-  constructor(ingredientData = []) {
+  constructor(ingredientData) {
     this.ingredients = ingredientData;
   }
 }
