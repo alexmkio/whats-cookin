@@ -1,10 +1,12 @@
 import { expect } from 'chai';
 import Recipe from '../src/classes/Recipe';
 import Cookbook from '../src/classes/Cookbook';
+import Ingredient from '../src/classes/Ingredient';
+import GroceryStore from '../src/classes/GroceryStore';
 
 describe('Cookbook', () => {
 
-  let recipe1, recipe2, recipes
+  let recipe1, recipe2, recipes, ingredientData, ingredientList, ingredientRepo
   beforeEach(() => {
     recipe1 = new Recipe({
       "id": 123456,
@@ -77,10 +79,45 @@ describe('Cookbook', () => {
       ]
     })
     recipes = new Cookbook([recipe1, recipe2]);
-  })    
+    ingredientData = [
+      {
+        "id": 9079,
+        "name": "dried cranberries",
+        "estimatedCostInCents": 921
+      },
+      {
+        "id": 11935,
+        "name": "catsup",
+        "estimatedCostInCents": 666
+      },
+      {
+        "id": 12151,
+        "name": "pistachio",
+        "estimatedCostInCents": 813
+      },
+      {
+        "id": 11821,
+        "name": "red sweet peppers",
+        "estimatedCostInCents": 1027
+      },
+      {
+        "id": 6615,
+        "name": "vegetable stock",
+        "estimatedCostInCents": 613
+      }
+    ];
+    ingredientList = ingredientData.map(ingredient => {
+      return new Ingredient(
+        ingredient.id,
+        ingredient.name,
+        ingredient.estimatedCostInCents
+      );
+    });
+    ingredientRepo = new GroceryStore(ingredientList);
+  })
 
   it('Should be a function', () => {
-    expect(RecipeRepository).to.be.a('function');
+    expect(Cookbook).to.be.a('function');
   });
 
   it('Should have a parameter to take in recipe data', () => {
@@ -92,11 +129,13 @@ describe('Cookbook', () => {
     expect(recipes.filterByTag('dessert')).to.not.deep.equal([recipe1]);
   });
 
-  it('Should filter list of recipes based on its name or ingredients', () => {
-    console.log(ingredientsData)
-    // expect(recipes.filterByNameOrIng('Chicken Tikka Masala')).to.deep.equal([recipe1]);
-    // expect(recipes.filterByNameOrIng('Chicken Tikka Masala')).to.not.deep.equal([recipe2]);
-    // expect(recipes.filterByNameOrIng('Chicken Tikka Masala')).to.deep.equal([recipe1]);
-    // expect(recipes.filterByNameOrIng('Chicken Tikka Masala')).to.not.deep.equal([recipe2]);
+  it('Should filter list of recipes based on its name', () => {
+    expect(recipes.filterByName('Chicken Tikka Masala')).to.deep.equal([recipe1]);
+    expect(recipes.filterByName('Chicken Tikka Masala')).to.not.deep.equal([recipe2]);
   });
+
+  it('Should filter list of recipes based on ingredient name', () => {
+    expect(recipes.filterByIngredient('dried cranberries', ingredientRepo)).to.deep.equal([recipe1]);
+  });
+
 })

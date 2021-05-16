@@ -3,7 +3,7 @@ import Ingredient from '../src/classes/Ingredient';
 import GroceryStore from '../src/classes/GroceryStore';
 
 describe('Grocery Store', () => {
-  let ingredientList, defaultIngredientList, ingredientData, ingredientRepo;
+  let ingredientList, ingredientData, ingredientRepo;
   beforeEach(() => {
     ingredientData = [
       {
@@ -32,7 +32,6 @@ describe('Grocery Store', () => {
         "estimatedCostInCents": 613
       }
     ];
-    defaultIngredientList = new GroceryStore();
     ingredientList = ingredientData.map(ingredient => {
       return new Ingredient(
         ingredient.id,
@@ -43,4 +42,12 @@ describe('Grocery Store', () => {
     ingredientRepo = new GroceryStore(ingredientList);
   });
 
+  it('Should be a function', () => {
+    expect(GroceryStore).to.be.a('function');
+  });
+
+  it('Should take in an array of object', () => {
+    expect(ingredientRepo.ingredients).to.deep.equal(ingredientData)
+    expect(ingredientRepo.ingredients).to.not.deep.equal([])
+  })
 });

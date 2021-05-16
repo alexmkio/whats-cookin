@@ -3,12 +3,17 @@ class Cookbook {
     this.cookbook = recipes;
   }
   filterByTag(tag) {
-    const filteredByTag = this.cookbook.filter(item => item.tags.includes(tag));
-    return filteredByTag
+    return this.cookbook.filter(item => item.tags.includes(tag));
   }
-  filterByNameOrIng(nameOrIng) {
-    console.log(ingredientsData)
-   
+  filterByName(recipeName) {
+    return this.cookbook.filter(item => item.name.includes(recipeName));
+  }
+  filterByIngredient(ingredientName, ingredientRepo) {
+  let foundIngredient = ingredientRepo.ingredients.find(ingredient => ingredient.name === ingredientName)
+  let foundRecipes = this.cookbook.filter(recipe => {
+    return recipe.ingredients.find(ingredient => ingredient.id === foundIngredient.id)
+  })
+  return foundRecipes
   }
 }
 
