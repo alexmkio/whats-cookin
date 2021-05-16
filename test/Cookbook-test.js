@@ -133,4 +133,9 @@ describe('Cookbook', () => {
     expect(recipes.filterByName('Chicken Tikka Masala')).to.deep.equal([recipe1]);
     expect(recipes.filterByName('Chicken Tikka Masala')).to.not.deep.equal([recipe2]);
   });
+
+  it('Should filter list of recipes based on ingredient name', () => {
+    expect(recipes.filterByIngredient('dried cranberries', ingredientRepo)).to.deep.equal([recipe1]);
+  });
+
 })
