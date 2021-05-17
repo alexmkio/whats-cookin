@@ -82,6 +82,15 @@ describe('User', () => {
     expect(User).to.be.a('function');
   });
 
+  it('Should allow a user to favorite or unfavorite recipes', () => {
+    expect(aUser.favoriteRecipes).to.deep.equal([]);
+    
+    aUser.determineFavorite(recipe1)
+    expect(aUser.favoriteRecipes).to.deep.equal([recipe1]);
+    
+    aUser.determineFavorite(recipe1)
+    expect(aUser.favoriteRecipes).to.deep.equal([]);
+  });
 
   // it('Should decide to cook a recipe that week (add to my recipesToCook)', () => {
 
