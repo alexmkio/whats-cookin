@@ -155,7 +155,7 @@ describe('User', () => {
     expect(aUser.filterFavByName('Chicken Tikka Masala')).to.not.deep.equal([recipe2]);
   });
 
-  it.skip('Should filter favoriteRecipes by ingredient name', () => {
+  it('Should filter favoriteRecipes by ingredient name', () => {
     aUser.determineFavorite(recipe1)
     aUser.determineFavorite(recipe2)
 
