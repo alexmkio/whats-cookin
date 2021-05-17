@@ -16,6 +16,9 @@ class User {
       this.recipesToCook.push(recipe)
     }
   }
+  filterFavByTag(tag) {
+    return this.favoriteRecipes.filter(recipe => recipe.tags.includes(tag));
+  }
 }
 
 export default User;
