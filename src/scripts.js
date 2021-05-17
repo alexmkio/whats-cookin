@@ -14,7 +14,12 @@ const cookbook = new Cookbook(recipeData)
 // functions
 function updateRecipeCardSection() {
   cookbook.cookbook.forEach(recipe => {
-    recipeCardsSection.innerHTML += `${recipe.name}`
+    recipeCardsSection.innerHTML += `<section>
+      <img src="${recipe.image}">
+      <h1>${recipe.name}</h1>
+      <img id="favoriteButton">
+      <img id="recipesToCookButton">
+    </section>`
   })
 }
 updateRecipeCardSection()
