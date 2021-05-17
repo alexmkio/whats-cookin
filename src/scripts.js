@@ -1,5 +1,6 @@
-// import './styles.css';
+import './styles.css';
 import apiCalls from './apiCalls';
+import Cookbook from '../src/classes/Cookbook';
 
 //query selectors
 const recipeCardsSection = document.getElementById('recipeCards');
@@ -7,13 +8,13 @@ const recipeCardsSection = document.getElementById('recipeCards');
 //global variables
 const cookbook = new Cookbook()
 
-//event listeners
+// event listeners
 
-//functions
+// functions
 // function updateRecipeCardSection() {
 //   Cookbook.
 //   recipeCardsSection.innerHTML +=
 // }
-
+//
 // updateRecipeCardSection();
 console.log('Hello world');
