@@ -25,13 +25,13 @@ class User {
   }
 
 
-  // filterFavByIngredient(ingredientName, ingredientRepo) {
-  // let foundIngredient = ingredientRepo.ingredients.find(ingredient => ingredient.name === ingredientName)
-  // let foundRecipes = this.cookbook.filter(recipe => {
-  //   return recipe.ingredients.find(ingredient => ingredient.id === foundIngredient.id)
-  // })
-  // return foundRecipes
-  // }
+  filterFavByIngredient(ingredientName, ingredientRepo) {
+  let foundIngredient = ingredientRepo.ingredients.find(ingredient => ingredient.name === ingredientName)
+  let foundRecipes = this.favoriteRecipes.filter(recipe => {
+    return recipe.ingredients.find(ingredient => ingredient.id === foundIngredient.id)
+  })
+  return foundRecipes
+  }
 
 }
 
