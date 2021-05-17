@@ -8,15 +8,15 @@ const recipeCardsSection = document.getElementById('recipeCards');
 
 //global variables
 const cookbook = new Cookbook(recipeData)
-console.log(cookbook.cookbook[0])
 
 // event listeners
 
 // functions
-// function updateRecipeCardSection() {
-//   cookbook.
-//   recipeCardsSection.innerHTML +=
-// }
-
+function updateRecipeCardSection() {
+  cookbook.cookbook.forEach(recipe => {
+    recipeCardsSection.innerHTML += `${recipe.name}`
+  })
+}
+updateRecipeCardSection()
 // updateRecipeCardSection();
 console.log('Hello world');
