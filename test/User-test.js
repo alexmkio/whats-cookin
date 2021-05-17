@@ -1,9 +1,11 @@
 import { expect } from 'chai';
 import User from '../src/classes/User';
 import Recipe from '../src/classes/Recipe';
+import Ingredient from '../src/classes/Ingredient';
+import GroceryStore from '../src/classes/GroceryStore';
 
 describe('User', () => {
-  let aUser, recipe1, recipe2
+  let aUser, recipe1, recipe2, ingredientData, ingredientList, ingredientRepo
   beforeEach(() => {
     aUser = new User();
     recipe1 = new Recipe({
@@ -76,6 +78,41 @@ describe('User', () => {
         "breakfast",
       ]
     })
+    ingredientData = [
+      {
+        "id": 9079,
+        "name": "dried cranberries",
+        "estimatedCostInCents": 921
+      },
+      {
+        "id": 11935,
+        "name": "catsup",
+        "estimatedCostInCents": 666
+      },
+      {
+        "id": 12151,
+        "name": "pistachio",
+        "estimatedCostInCents": 813
+      },
+      {
+        "id": 11821,
+        "name": "red sweet peppers",
+        "estimatedCostInCents": 1027
+      },
+      {
+        "id": 6615,
+        "name": "vegetable stock",
+        "estimatedCostInCents": 613
+      }
+    ];
+    ingredientList = ingredientData.map(ingredient => {
+      return new Ingredient(
+        ingredient.id,
+        ingredient.name,
+        ingredient.estimatedCostInCents
+      );
+    });
+    ingredientRepo = new GroceryStore(ingredientList);
   })
 
   it('should be a function', () => {
