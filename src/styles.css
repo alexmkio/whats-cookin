@@ -5,3 +5,11 @@ body {
 .hidden {
   display: none;
 }
+
+.favoriteButton {
+  background-color: #EBF5EE;
+  background-image: url(https://image.flaticon.com/icons/svg/149/149222.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 13%;
+}
