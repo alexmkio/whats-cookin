@@ -102,7 +102,7 @@ describe('User', () => {
     expect(aUser.recipesToCook).to.deep.equal([recipe1, recipe2]);
   });
 
-  it('Should filter my favoriteRecipes by one or more tags', () => {
+  it('Should filter favoriteRecipes by one or more tags', () => {
     aUser.determineFavorite(recipe1)
     aUser.determineFavorite(recipe2)
 
@@ -110,8 +110,18 @@ describe('User', () => {
     expect(aUser.filterFavByTag('dessert')).to.not.deep.equal([recipe1]);
   });
 
-  // it('Should filter my favoriteRecipes by its name or ingredients', () => {
+  it('Should filter favoriteRecipes by name', () => {
+    aUser.determineFavorite(recipe1)
+    aUser.determineFavorite(recipe2)
 
-  // });
+    expect(aUser.filterFavByName('Chicken Tikka Masala')).to.deep.equal([recipe1]);
+    expect(aUser.filterFavByName('Chicken Tikka Masala')).to.not.deep.equal([recipe2]);
+  });
 
+  it.skip('Should filter favoriteRecipes by ingredient name', () => {
+    aUser.determineFavorite(recipe1)
+    aUser.determineFavorite(recipe2)
+
+    expect(aUser.filterFavByIngredient('dried cranberries', ingredientRepo)).to.deep.equal([recipe1]);
+  });
 })
