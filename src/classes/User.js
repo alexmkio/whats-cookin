@@ -19,6 +19,20 @@ class User {
   filterFavByTag(tag) {
     return this.favoriteRecipes.filter(recipe => recipe.tags.includes(tag));
   }
+
+  filterFavByName(recipeName) {
+    return this.favoriteRecipes.filter(recipe => recipe.name.includes(recipeName));
+  }
+
+
+  // filterFavByIngredient(ingredientName, ingredientRepo) {
+  // let foundIngredient = ingredientRepo.ingredients.find(ingredient => ingredient.name === ingredientName)
+  // let foundRecipes = this.cookbook.filter(recipe => {
+  //   return recipe.ingredients.find(ingredient => ingredient.id === foundIngredient.id)
+  // })
+  // return foundRecipes
+  // }
+
 }
 
 export default User;
