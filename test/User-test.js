@@ -92,9 +92,15 @@ describe('User', () => {
     expect(aUser.favoriteRecipes).to.deep.equal([]);
   });
 
-  // it('Should decide to cook a recipe that week (add to my recipesToCook)', () => {
+  it('Should decide to cook a recipe that week (add to my recipesToCook)', () => {
+    expect(aUser.recipesToCook).to.deep.equal([]);
+    
+    aUser.addToMealList(recipe1)
+    expect(aUser.recipesToCook).to.deep.equal([recipe1]);
 
-  // });
+    aUser.addToMealList(recipe2)
+    expect(aUser.recipesToCook).to.deep.equal([recipe1, recipe2]);
+  });
 
   // it('Should filter my favoriteRecipes by one or more tags', () => {
 
