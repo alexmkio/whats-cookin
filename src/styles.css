@@ -52,9 +52,20 @@ nav {
   display: flex;
 }
 
-.h2 {
+h1 {
   font-size: 3rem;
 }
 
+h2 {
+  font-size: 1rem;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.list-div {
+  margin-left: 3rem;
+}
+
 .icon {
+  font-size: 25rem;
 }
