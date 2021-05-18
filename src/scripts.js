@@ -21,7 +21,8 @@ const cookbook = new Cookbook(recipeData)
 
 // event listeners
 filterNameButton.addEventListener('click', showRecipesByName)
-// filterIngButton.addEventListener('click', showRecipesByIng)
+filterIngButton.addEventListener('click', showRecipesByIng)
+
 // load page
 function updateRecipeCardSection(recipes) {
   recipes.forEach(recipe => {
@@ -70,11 +71,12 @@ function showRecipeDetails(idNumber) {
 
 function showRecipesByName() {
   const filteredRecipe = cookbook.filterByName(filterNameInput.value)
-  console.log(filteredRecipe)
   showRecipeDetails(filteredRecipe[0].id)
 }
 
-
+function showRecipesByIng() {
+  const filteredRecipe = cookbook.filterByIngredient()
+}
 
 // helper functions
 function hide(e) {

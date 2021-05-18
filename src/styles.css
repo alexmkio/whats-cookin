@@ -49,6 +49,10 @@ nav {
   justify-content: center;
 }
 
+.hover {
+  cursor: pointer;
+}
+
 .list-section {
   display: flex;
 }
