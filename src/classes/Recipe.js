@@ -11,12 +11,16 @@ class Recipe {
   }
   findIngredientNames(ingredients) {
     this.ingredients.forEach(element => this.necessaryIngredientIDs.push(element.id));
+    console.log('4th', this.necessaryIngredientIDs)
     this.necessaryIngredients = ingredients.reduce((acc, item) => {
+      console.log('this.necessaryIngredientIDs', ingredients)
+      console.log('ITEM', item)
       if(this.necessaryIngredientIDs.includes(item.id)){
         acc.push(item.name)
       }
       return acc;
     }, []);
+    console.log('LAST', this.necessaryIngredients)
   }
   calculateCostOfIngredients(ingredients) {
     const totalCost = ingredients.reduce((acc, ingredient) => {

@@ -1,11 +1,15 @@
 import './styles.css';
 import apiCalls from './apiCalls';
 import Cookbook from '../src/classes/Cookbook';
+import Recipe from '../src/classes/Recipe';
 import recipeData from '../src/data/recipes';
+import ingredientsData from '../src/data/ingredient';
 import '../assets/star.svg'
 
 // query selectors
 const recipeCardsSection = document.getElementById('recipeCards');
+const allRecipesSection = document.getElementById('allRecipesSection');
+const recipeDetailSection = document.getElementById('recipeDetailSection');
 
 // global variables
 const cookbook = new Cookbook(recipeData)
@@ -16,7 +20,7 @@ const cookbook = new Cookbook(recipeData)
 function updateRecipeCardSection() {
   cookbook.cookbook.forEach(recipe => {
     recipeCardsSection.innerHTML += `<section class="recipe-card">
-    <div class="image-section" id="imageSection">
+    <div class="image-section" id="${recipe.id}">
     <img class="recipe-image" id="imageSection" src="${recipe.image}">
     <h3 class="recipe-name" id="imageSection">${recipe.name}</h3>
     </div>
@@ -33,21 +37,41 @@ window.addEventListener('load', updateRecipeCardSection);
 // functions
 recipeCardsSection.addEventListener('click', function(event){
   if(event.target.id === 'imageSection'){
-    console.log('HEY I MADE IT')
-    // var coverElement = event.target.parentElement;
-    // var coverId = coverElement.id;
-    // coverElement.parentNode.removeChild(coverElement);
-    // for (var i = 0 ; i < savedCovers.length ; i ++) {
-    //   if (savedCovers[i].id === Number(coverId)) {
-    //     savedCovers.splice(i, 1);
-    //   }
-    // }
+    showRecipeDetails(event.target.parentElement.id)
   }
 });
 
-//on click grab id
-//call function(id)
+function showRecipeDetails(idNumber) {
+  hide(allRecipesSection)
+  show(recipeDetailSection)
+  const matchingRecipe = cookbook.cookbook.find(recipe => recipe.id == idNumber)
+  const instanceOfRecipe = new Recipe(matchingRecipe)
+  
+  console.log('1st', instanceOfRecipe.ingredients)
+  instanceOfRecipe.findIngredientNames(instanceOfRecipe.ingredients)
+  // console.log(instanceOfRecipe.necessaryIngredients)
 
-//function(id)
-// hide recipeCardsSection
-// innerHTML = id.name id.image id.directions
+  // console.log(instanceOfRecipe.ingredients)
+  // console.log(instanceOfRecipe.findIngredientNames(20081))
+  // console.log(thisRecipe.findIngredientNames(20081))
+
+
+  // recipeDetailSection.innerHTML += `
+  // ${thisRecipe.instructions}<br>
+  // ${thisRecipe.ingredients.id}<br>
+  // ${thisRecipe}<br>
+  // `
+}
+
+
+
+// helper functions
+function hide(e) {
+  e.classList.add('hidden')
+}
+
+function show(e) {
+  e.classList.remove('hidden')
+}
+
+// directions, ingredients, cost
