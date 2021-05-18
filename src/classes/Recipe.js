@@ -19,17 +19,15 @@ class Recipe {
     }, []);
   }
   calculateCostOfIngredients(ingredients) {
-    const totalCost = ingredients.reduce((acc, ingredient) => {
-      let foundIngredient = this.ingredients.find(currentIngredient => currentIngredient.id === ingredient.id)
-
-      // console.log('FOUND INGREDIENT', foundIngredient)
-
-      acc += foundIngredient.quantity.amount * ingredient.estimatedCostInCents
-      // console.log('ACCC', acc)
+    const totalCost = this.ingredients.reduce((acc, currentIngredient) => {
+      let foundIngredient = ingredients.find(ingredient => ingredient.id === currentIngredient.id)
+      acc += currentIngredient.quantity.amount * foundIngredient.estimatedCostInCents
       return acc
     }, 0)
     return totalCost / 100
   }
+
+
   returnDirections() {
     return this.instructions.map(item => `${item.number}: ${item.instruction}`);
   }
