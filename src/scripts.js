@@ -11,11 +11,16 @@ const recipeCardsSection = document.getElementById('recipeCards');
 const allRecipesSection = document.getElementById('allRecipesSection');
 const recipeDetailContainer = document.getElementById('recipeDetailContainer');
 const recipeDetailSection = document.getElementById('recipeDetailSection');
+const filterNameInput = document.getElementById('filterNameInput');
+const filterNameButton = document.getElementById('filterNameButton');
+const filterIngInput = document.getElementById('filterIngInput');
+const filterIngButton = document.getElementById('filterIngButton')
 
 // global variables
 const cookbook = new Cookbook(recipeData)
 
 // event listeners
+// submitButton.addEventListener('click', showFilteredRecipes)
 
 // load page
 function updateRecipeCardSection() {
@@ -63,6 +68,9 @@ function showRecipeDetails(idNumber) {
   `
 }
 
+// function showFilteredRecipes () {
+//
+// }
 
 
 // helper functions
