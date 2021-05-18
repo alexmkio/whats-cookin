@@ -78,6 +78,6 @@ describe('Recipe', () => {
   });
 
   it('Should return its directions / instructions', () => {
-    expect(recipe.returnDirections()).to.equal("1: In a large bowl, combine yogurt, lemon juice, 2 teaspoons cumin, cinnamon, cayenne, black pepper, ginger, and salt. Stir in chicken, cover, and refrigerate for 1 hour. 2: Preheat a grill for high heat.");
+    expect(recipe.returnDirections()).to.deep.equal([ '1: In a large bowl, combine yogurt, lemon juice, 2 teaspoons cumin, cinnamon, cayenne, black pepper, ginger, and salt. Stir in chicken, cover, and refrigerate for 1 hour.', '2: Preheat a grill for high heat.' ]);
   });
 })
