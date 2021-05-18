@@ -1,10 +1,13 @@
 body {
   background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
 }
 
 nav {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .hidden {
@@ -18,7 +21,6 @@ nav {
   flex-direction: column;
   margin: 1rem;
   padding: 1rem;
-
 }
 
 .recipe-image {
@@ -42,5 +44,17 @@ nav {
 
 .recipe-cards {
   display: flex;
- flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list-section {
+  display: flex;
+}
+
+.h2 {
+  font-size: 3rem;
+}
+
+.icon {
 }
