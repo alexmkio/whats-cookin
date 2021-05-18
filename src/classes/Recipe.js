@@ -22,14 +22,13 @@ class Recipe {
     const totalCost = ingredients.reduce((acc, ingredient) => {
       let foundIngredient = this.ingredients.find(currentIngredient => currentIngredient.id === ingredient.id)
 
-      console.log('FOUND INGREDIENT', foundIngredient)
+      // console.log('FOUND INGREDIENT', foundIngredient)
 
       acc += foundIngredient.quantity.amount * ingredient.estimatedCostInCents
-      console.log('ACCC', acc)
+      // console.log('ACCC', acc)
       return acc
     }, 0)
-    console.log('TOTAL COST', totalCost)
-    return totalCost
+    return totalCost / 100
   }
   returnDirections() {
     return this.instructions.map(item => `${item.number}: ${item.instruction}`);
