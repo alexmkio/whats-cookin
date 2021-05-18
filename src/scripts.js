@@ -20,11 +20,11 @@ const filterIngButton = document.getElementById('filterIngButton')
 const cookbook = new Cookbook(recipeData)
 
 // event listeners
-// submitButton.addEventListener('click', showFilteredRecipes)
-
+filterNameButton.addEventListener('click', showRecipesByName)
+// filterIngButton.addEventListener('click', showRecipesByIng)
 // load page
-function updateRecipeCardSection() {
-  cookbook.cookbook.forEach(recipe => {
+function updateRecipeCardSection(recipes) {
+  recipes.forEach(recipe => {
     recipeCardsSection.innerHTML += `<section class="recipe-card">
     <div class="image-section" id="${recipe.id}">
     <img class="recipe-image" id="imageSection" src="${recipe.image}">
@@ -38,11 +38,11 @@ function updateRecipeCardSection() {
   })
 }
 
-window.addEventListener('load', updateRecipeCardSection);
+window.addEventListener('load', updateRecipeCardSection(cookbook.cookbook));
 
 // functions
-recipeCardsSection.addEventListener('click', function(event){
-  if(event.target.id === 'imageSection'){
+recipeCardsSection.addEventListener('click', function(event) {
+  if (event.target.id === 'imageSection') {
     showRecipeDetails(event.target.parentElement.id)
   }
 });
@@ -68,9 +68,12 @@ function showRecipeDetails(idNumber) {
   `
 }
 
-// function showFilteredRecipes () {
-//
-// }
+function showRecipesByName() {
+  const filteredRecipe = cookbook.filterByName(filterNameInput.value)
+  console.log(filteredRecipe)
+  showRecipeDetails(filteredRecipe[0].id)
+}
+
 
 
 // helper functions
