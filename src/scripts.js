@@ -14,7 +14,8 @@ const recipeDetailSection = document.getElementById('recipeDetailSection');
 const filterNameInput = document.getElementById('filterNameInput');
 const filterNameButton = document.getElementById('filterNameButton');
 const filterIngInput = document.getElementById('filterIngInput');
-const filterIngButton = document.getElementById('filterIngButton')
+const filterIngButton = document.getElementById('filterIngButton');
+const filterSearchSection = document.getElementById('filterSearchSection')
 
 // global variables
 const cookbook = new Cookbook(recipeData)
@@ -72,6 +73,7 @@ function showRecipeDetails(idNumber) {
 function showRecipesByName() {
   const filteredRecipe = cookbook.filterByName(filterNameInput.value)
   showRecipeDetails(filteredRecipe[0].id)
+  hide(filterSearchSection)
 }
 
 function showRecipesByIng() {
