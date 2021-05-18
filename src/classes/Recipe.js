@@ -11,28 +11,28 @@ class Recipe {
   }
   findIngredientNames(ingredients) {
     this.ingredients.forEach(element => this.necessaryIngredientIDs.push(element.id));
-    console.log('4th', this.necessaryIngredientIDs)
     this.necessaryIngredients = ingredients.reduce((acc, item) => {
-      console.log('this.necessaryIngredientIDs', ingredients)
-      console.log('ITEM', item)
       if(this.necessaryIngredientIDs.includes(item.id)){
         acc.push(item.name)
       }
       return acc;
     }, []);
-    console.log('LAST', this.necessaryIngredients)
   }
   calculateCostOfIngredients(ingredients) {
     const totalCost = ingredients.reduce((acc, ingredient) => {
       let foundIngredient = this.ingredients.find(currentIngredient => currentIngredient.id === ingredient.id)
+
+      console.log('FOUND INGREDIENT', foundIngredient)
+
       acc += foundIngredient.quantity.amount * ingredient.estimatedCostInCents
+      console.log('ACCC', acc)
       return acc
     }, 0)
+    console.log('TOTAL COST', totalCost)
     return totalCost
   }
   returnDirections() {
-    const directions = this.instructions.map(item => `${item.number}: ${item.instruction}`);
-    return directions.join(' ')
+    return this.instructions.map(item => `${item.number}: ${item.instruction}`);
   }
 }
 

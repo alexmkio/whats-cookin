@@ -46,21 +46,22 @@ function showRecipeDetails(idNumber) {
   show(recipeDetailSection)
   const matchingRecipe = cookbook.cookbook.find(recipe => recipe.id == idNumber)
   const instanceOfRecipe = new Recipe(matchingRecipe)
+  instanceOfRecipe.findIngredientNames(ingredientsData)
+  recipeDetailSection.innerHTML += `
+  <img src="${instanceOfRecipe.image}">
+  <h3>${instanceOfRecipe.name}</h3>
+
+  <h3>Ingredients</h3>
+  <p>${instanceOfRecipe.necessaryIngredients.join(', ')}</p>
+
+  <h3>Directions</h3>
+  <p>${instanceOfRecipe.returnDirections().join('</p><p>')}</p>
+  `
   
-  console.log('1st', instanceOfRecipe.ingredients)
-  instanceOfRecipe.findIngredientNames(instanceOfRecipe.ingredients)
-  // console.log(instanceOfRecipe.necessaryIngredients)
+    // <h3>Cost</h3>
+    // <p>${instanceOfRecipe.calculateCostOfIngredients(ingredientsData)}</p>
 
-  // console.log(instanceOfRecipe.ingredients)
-  // console.log(instanceOfRecipe.findIngredientNames(20081))
-  // console.log(thisRecipe.findIngredientNames(20081))
-
-
-  // recipeDetailSection.innerHTML += `
-  // ${thisRecipe.instructions}<br>
-  // ${thisRecipe.ingredients.id}<br>
-  // ${thisRecipe}<br>
-  // `
+    instanceOfRecipe.calculateCostOfIngredients(ingredientsData)
 }
 
 

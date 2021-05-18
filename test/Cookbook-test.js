@@ -104,13 +104,13 @@ describe('Cookbook', () => {
         "id": 6615,
         "name": "vegetable stock",
         "estimatedCostInCents": 613
-      }
+      },
     ];
     ingredientList = ingredientData.map(ingredient => {
       return new Ingredient(
         ingredient.id,
         ingredient.name,
-        ingredient.estimatedCostInCents
+        ingredient.estimatedCostInCents,
       );
     });
     ingredientRepo = new GroceryStore(ingredientList);
