@@ -9,6 +9,7 @@ import '../assets/star.svg'
 // query selectors
 const recipeCardsSection = document.getElementById('recipeCards');
 const allRecipesSection = document.getElementById('allRecipesSection');
+const recipeDetailContainer = document.getElementById('recipeDetailContainer');
 const recipeDetailSection = document.getElementById('recipeDetailSection');
 
 // global variables
@@ -22,7 +23,7 @@ function updateRecipeCardSection() {
     recipeCardsSection.innerHTML += `<section class="recipe-card">
     <div class="image-section" id="${recipe.id}">
     <img class="recipe-image" id="imageSection" src="${recipe.image}">
-    <h3 class="recipe-name" id="imageSection">${recipe.name}</h3>
+    <h2 class="recipe-name" id="imageSection">${recipe.name}</h2>
     </div>
     <div class="icon-section">
     <svg class="icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z"/></g></svg>
@@ -43,7 +44,7 @@ recipeCardsSection.addEventListener('click', function(event){
 
 function showRecipeDetails(idNumber) {
   hide(allRecipesSection)
-  show(recipeDetailSection)
+  show(recipeDetailContainer)
   const matchingRecipe = cookbook.cookbook.find(recipe => recipe.id == idNumber)
   const instanceOfRecipe = new Recipe(matchingRecipe)
   instanceOfRecipe.findIngredientNames(ingredientsData)
@@ -51,17 +52,15 @@ function showRecipeDetails(idNumber) {
   <img src="${instanceOfRecipe.image}">
   <h3>${instanceOfRecipe.name}</h3>
 
-  <h3>Ingredients</h3>
+  <h4>Ingredients</h4>
   <p>${instanceOfRecipe.necessaryIngredients.join(', ')}</p>
 
-  <h3>Directions</h3>
+  <h4>Directions</h4>
   <p>${instanceOfRecipe.returnDirections().join('</p><p>')}</p>
-  `
-  
-    // <h3>Cost</h3>
-    // <p>${instanceOfRecipe.calculateCostOfIngredients(ingredientsData)}</p>
 
-    instanceOfRecipe.calculateCostOfIngredients(ingredientsData)
+  <h3>Cost</h3>
+  <p>$${instanceOfRecipe.calculateCostOfIngredients(ingredientsData).toFixed(2)}</p>
+  `
 }
 
 
@@ -74,5 +73,3 @@ function hide(e) {
 function show(e) {
   e.classList.remove('hidden')
 }
-
-// directions, ingredients, cost
