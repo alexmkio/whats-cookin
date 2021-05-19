@@ -28,6 +28,7 @@ filterIngButton.addEventListener('click', showRecipesByIng)
 
 // load page
 function updateRecipeCardSection(recipes) {
+  recipeCardsSection.innerHTML = '';
   recipes.forEach(recipe => {
     recipeCardsSection.innerHTML += `<section class="recipe-card">
     <div class="image-section" id="${recipe.id}">
@@ -79,8 +80,7 @@ function showRecipesByName() {
 }
 
 function showRecipesByIng() {
-  let filteredRecipe = cookbook.filterByIngredient(filterIngInput.value, groceryStore)
-  updateRecipeCardSection(filteredRecipe)
+  updateRecipeCardSection(cookbook.filterByIngredient(filterIngInput.value, groceryStore))
 }
 
 // helper functions
