@@ -19,7 +19,7 @@ const filterIngButton = document.getElementById('filterIngButton');
 // const tagButtons = document.querySelector("input[type='radio']:checked")
 const tagSubmitButton = document.getElementById('tagSubmit');
 const filterSearchSection = document.getElementById('filterSearchSection')
-
+const radioButtonSection = document.getElementById('radioButtonSection')
 // global variables
 const cookbook = new Cookbook(recipeData)
 const groceryStore = new GroceryStore(ingredientsData)
@@ -27,7 +27,7 @@ const groceryStore = new GroceryStore(ingredientsData)
 // event listeners
 filterNameButton.addEventListener('click', showRecipesByName)
 filterIngButton.addEventListener('click', showRecipesByIng)
-tagSubmitButton.addEventListener('click', showRecipesByTags)
+radioButtonSection.addEventListener('click', showRecipesByTags)
 
 // load page
 function updateRecipeCardSection(recipes) {
@@ -93,7 +93,7 @@ function showRecipesByTags() {
 
   // for (let index = 0; index < inputs.length; index++) {
   //   const element = array[index];
-    
+
   // }
 
   // inputs.forEach(element => {
