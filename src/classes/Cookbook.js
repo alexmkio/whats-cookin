@@ -3,15 +3,15 @@ class Cookbook {
     this.cookbook = recipes;
   }
   filterByTag(...tags) {
-    const array = [];
-    const something = tags.forEach(tag => {
+    const cookbookFiltered = [];
+    tags.forEach(tag => {
       this.cookbook.forEach(recipe => {
       if (recipe.tags.includes(tag)) {
-        array.push(recipe)
+        cookbookFiltered.push(recipe)
       }
       });
     })
-    return array
+    return cookbookFiltered
   }
   filterByName(recipeName) {
     return this.cookbook.filter(item => item.name.includes(recipeName));

@@ -139,13 +139,20 @@ describe('User', () => {
     expect(aUser.recipesToCook).to.deep.equal([recipe1, recipe2]);
   });
 
-  it('Should filter favoriteRecipes by one or more tags', () => {
+  it('Should filter favoriteRecipes by one tag', () => {
     aUser.determineFavorite(recipe1)
     aUser.determineFavorite(recipe2)
 
     expect(aUser.filterFavByTag('dessert')).to.deep.equal([recipe2]);
     expect(aUser.filterFavByTag('dessert')).to.not.deep.equal([recipe1]);
   });
+
+  it('Should filter favoriteRecipes by one or more tags', () => {
+    aUser.determineFavorite(recipe1)
+    aUser.determineFavorite(recipe2)
+
+    expect(aUser.filterFavByTag('indian', 'dessert')).to.deep.equal([recipe1, recipe2]);
+    });
 
   it('Should filter favoriteRecipes by name', () => {
     aUser.determineFavorite(recipe1)
