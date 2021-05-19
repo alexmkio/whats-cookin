@@ -4,6 +4,7 @@ import Cookbook from '../src/classes/Cookbook';
 import Recipe from '../src/classes/Recipe';
 import recipeData from '../src/data/recipes';
 import ingredientsData from '../src/data/ingredient';
+import GroceryStore from '../src/classes/GroceryStore'
 import '../assets/star.svg'
 
 // query selectors
@@ -19,6 +20,7 @@ const filterSearchSection = document.getElementById('filterSearchSection')
 
 // global variables
 const cookbook = new Cookbook(recipeData)
+const groceryStore = new GroceryStore(ingredientsData)
 
 // event listeners
 filterNameButton.addEventListener('click', showRecipesByName)
@@ -71,13 +73,14 @@ function showRecipeDetails(idNumber) {
 }
 
 function showRecipesByName() {
-  const filteredRecipe = cookbook.filterByName(filterNameInput.value)
+  let filteredRecipe = cookbook.filterByName(filterNameInput.value)
   showRecipeDetails(filteredRecipe[0].id)
   hide(filterSearchSection)
 }
 
 function showRecipesByIng() {
-  const filteredRecipe = cookbook.filterByIngredient()
+  let filteredRecipe = cookbook.filterByIngredient(filterIngInput.value, groceryStore)
+  updateRecipeCardSection(filteredRecipe)
 }
 
 // helper functions
