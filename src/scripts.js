@@ -74,6 +74,8 @@ recipeCardsSection.addEventListener('click', function(event) {
 });
 
 function showRecipeDetails(idNumber) {
+  hide(filterSearchSection)
+  hide(filterFavoriteSection)
   hide(allRecipesSection)
   show(recipeDetailContainer)
   const matchingRecipe = cookbook.cookbook.find(recipe => recipe.id == idNumber)
@@ -97,7 +99,6 @@ function showRecipeDetails(idNumber) {
 function showRecipesByName() {
   let filteredRecipe = cookbook.filterByName(filterNameInput.value)
   showRecipeDetails(filteredRecipe[0].id)
-  hide(filterSearchSection)
 }
 
 function showRecipesByIng() {
@@ -112,23 +113,33 @@ function showRecipesByTags() {
     }
   });
   updateRecipeCardSection(cookbook.filterByTag(checkedTags))
-  hide(filterSearchSection)
 }
 
 function showFavoritedRecipes() {
   hide(filterSearchSection)
+  hide(recipeDetailContainer)
+  hide(recipeDetailSection)
+  recipeDetailSection.innerHTML = '';
   show(filterFavoriteSection)
+  show(allRecipesSection)
   updateRecipeCardSection(user.favoriteRecipes)
 }
 
 function showAllRecipes() {
+  hide(filterFavoriteSection)
+  hide(recipeDetailContainer)
+  hide(recipeDetailSection)
+  recipeDetailSection.innerHTML = '';
+  show(filterSearchSection)
+  show(allRecipesSection)
   updateRecipeCardSection(cookbook.cookbook)
 }
 
 function showFavRecipesByName() {
+
+  
   let filteredRecipe = cookbook.filterByName(filterFavNameInput.value)
   showRecipeDetails(filteredRecipe[0].id)
-  hide(filterSearchSection)
 }
 
 function showFavRecipesByIng() {
