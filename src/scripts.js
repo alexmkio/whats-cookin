@@ -19,6 +19,8 @@ const filterIngInput = document.getElementById('filterIngInput');
 const filterIngButton = document.getElementById('filterIngButton');
 const checkboxes = document.getElementsByName('tagBox');
 const tagSubmitButton = document.getElementById('tagSubmit');
+const favCheckboxes = document.getElementsByName('favTagBox');
+const favTagSubmitButton = document.getElementById('favTagSubmit');
 const filterSearchSection = document.getElementById('filterSearchSection');
 const filterFavoriteSection = document.getElementById('filterFavoriteSection');
 const favoriteButton = document.getElementById('favoriteButton');
@@ -37,6 +39,7 @@ const user = new User();
 filterNameButton.addEventListener('click', showRecipesByName)
 filterIngButton.addEventListener('click', showRecipesByIng)
 tagSubmitButton.addEventListener('click', showRecipesByTags)
+favTagSubmitButton.addEventListener('click', showFavRecipesByTags)
 favoriteButton.addEventListener('click', showFavoritedRecipes)
 title.addEventListener('click', showAllRecipes)
 filterFavNameButton.addEventListener('click', showFavRecipesByName)
@@ -106,7 +109,7 @@ function showRecipesByIng() {
 }
 
 function showRecipesByTags() {
-  const checkedTags = [];
+  let checkedTags = [];
   checkboxes.forEach(box => {
     if (box.checked) {
       checkedTags.push(box.value)
@@ -136,14 +139,23 @@ function showAllRecipes() {
 }
 
 function showFavRecipesByName() {
-
-  
   let filteredRecipe = cookbook.filterByName(filterFavNameInput.value)
   showRecipeDetails(filteredRecipe[0].id)
 }
 
 function showFavRecipesByIng() {
   updateRecipeCardSection(cookbook.filterByIngredient(filterFavIngInput.value, groceryStore))
+}
+
+function showFavRecipesByTags() {
+
+  let checkedTags = [];
+  favCheckboxes.forEach(box => {
+    if (box.checked) {
+      checkedTags.push(box.value)
+    }
+  });
+  updateRecipeCardSection(user.filterFavByTag(checkedTags))
 }
 
 // helper functions
