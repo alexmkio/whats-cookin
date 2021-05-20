@@ -21,6 +21,7 @@ const checkboxes = document.getElementsByName('tagBox');
 const tagSubmitButton = document.getElementById('tagSubmit');
 const filterSearchSection = document.getElementById('filterSearchSection');
 const favoriteButton = document.getElementById('favoriteButton');
+const title = document.getElementById('title');
 
 // global variables
 const cookbook = new Cookbook(recipeData);
@@ -32,6 +33,7 @@ filterNameButton.addEventListener('click', showRecipesByName)
 filterIngButton.addEventListener('click', showRecipesByIng)
 tagSubmitButton.addEventListener('click', showRecipesByTags)
 favoriteButton.addEventListener('click', showFavoritedRecipes)
+title.addEventListener('click', showAllRecipes)
 
 // load page
 function updateRecipeCardSection(recipes) {
@@ -60,14 +62,8 @@ recipeCardsSection.addEventListener('click', function(event) {
   if (event.target.id === 'selectFavorite') {
     const matchingRecipe = cookbook.cookbook.find(recipe => recipe.id == event.target.parentElement.parentElement.id)
     user.determineFavorite(matchingRecipe)
-    console.log("did it work?", user.favoriteRecipes)
   }
 });
-
-recipeCardsSection.addEventListener('click', function(event) {
-
-});
-
 
 function showRecipeDetails(idNumber) {
   hide(allRecipesSection)
@@ -115,6 +111,9 @@ function showFavoritedRecipes() {
   updateRecipeCardSection(user.favoriteRecipes)
 }
 
+function showAllRecipes() {
+  updateRecipeCardSection(cookbook.cookbook)
+}
 
 // helper functions
 function hide(e) {
