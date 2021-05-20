@@ -16,7 +16,7 @@ const filterNameInput = document.getElementById('filterNameInput');
 const filterNameButton = document.getElementById('filterNameButton');
 const filterIngInput = document.getElementById('filterIngInput');
 const filterIngButton = document.getElementById('filterIngButton');
-// const tagButtons = document.querySelector("input[type='radio']:checked")
+const checkboxes = document.getElementsByName('tagBox');
 const tagSubmitButton = document.getElementById('tagSubmit');
 const filterSearchSection = document.getElementById('filterSearchSection')
 
@@ -87,29 +87,13 @@ function showRecipesByIng() {
 }
 
 function showRecipesByTags() {
-
-  // var inputs = document.getElementsByTagName('input');
-  // console.log(inputs)
-
-  // for (let index = 0; index < inputs.length; index++) {
-  //   const element = array[index];
-    
-  // }
-
-  // inputs.forEach(element => {
-  //   if(element.type="radio") {
-  //     if(element.checked)
-  //         console.log(element.value)
-  //   }
+  const checkedTags = [];
+  checkboxes.forEach(box => {
+    if (box.checked) {
+      checkedTags.push(box.value)
+    }
   });
-
-
-  // const array = [];
-  //   if (tagButtons.checked) {
-  //     console.log('MADE IT')
-  //     array.push(tagButtons.value)
-  //   }
-  // console.log('HEY', array)
+  updateRecipeCardSection(cookbook.filterByTag(checkedTags))
 }
 
 // helper functions
