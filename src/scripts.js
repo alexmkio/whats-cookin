@@ -77,7 +77,6 @@ recipeCardsSection.addEventListener('click', function(event) {
   }
   if (event.target.id === 'selectToCook') {
     let matchingRecipe = cookbook.cookbook.find(recipe => recipe.id == event.target.parentElement.parentElement.id)
-    console.log('ADDED')
     user.addToMealList(matchingRecipe)
   }
 });
