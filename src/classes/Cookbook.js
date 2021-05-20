@@ -4,7 +4,7 @@ class Cookbook {
   }
   filterByTag(...tags) {
     const cookbookFiltered = [];
-    tags.forEach(tag => {
+    tags.flat().forEach(tag => {
       this.cookbook.forEach(recipe => {
       if (recipe.tags.includes(tag)) {
         cookbookFiltered.push(recipe)
