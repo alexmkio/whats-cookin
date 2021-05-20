@@ -18,7 +18,7 @@ class User {
   }
   filterFavByTag(...tags) {
     const favoritesFiltered = [];
-    tags.forEach(tag => {
+    tags.flat().forEach(tag => {
       this.favoriteRecipes.forEach(recipe => {
       if (recipe.tags.includes(tag)) {
         favoritesFiltered.push(recipe)
