@@ -19,7 +19,7 @@ const filterIngButton = document.getElementById('filterIngButton');
 const checkboxes = document.getElementsByName('tagBox');
 const tagSubmitButton = document.getElementById('tagSubmit');
 const filterSearchSection = document.getElementById('filterSearchSection')
-
+const radioButtonSection = document.getElementById('radioButtonSection')
 // global variables
 const cookbook = new Cookbook(recipeData)
 const groceryStore = new GroceryStore(ingredientsData)
@@ -27,7 +27,7 @@ const groceryStore = new GroceryStore(ingredientsData)
 // event listeners
 filterNameButton.addEventListener('click', showRecipesByName)
 filterIngButton.addEventListener('click', showRecipesByIng)
-tagSubmitButton.addEventListener('click', showRecipesByTags)
+radioButtonSection.addEventListener('click', showRecipesByTags)
 
 // load page
 function updateRecipeCardSection(recipes) {
