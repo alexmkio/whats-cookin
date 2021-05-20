@@ -94,6 +94,7 @@ function showRecipesByTags() {
     }
   });
   updateRecipeCardSection(cookbook.filterByTag(checkedTags))
+  hide(filterSearchSection)
 }
 
 // helper functions
