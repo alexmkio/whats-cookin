@@ -16,15 +16,20 @@ class User {
       this.recipesToCook.push(recipe)
     }
   }
-  filterFavByTag(tag) {
-    return this.favoriteRecipes.filter(recipe => recipe.tags.includes(tag));
+  filterFavByTag(...tags) {
+    const favoritesFiltered = [];
+    tags.forEach(tag => {
+      this.favoriteRecipes.forEach(recipe => {
+      if (recipe.tags.includes(tag)) {
+        favoritesFiltered.push(recipe)
+      }
+      });
+    })
+    return favoritesFiltered
   }
-
   filterFavByName(recipeName) {
     return this.favoriteRecipes.filter(recipe => recipe.name.includes(recipeName));
   }
-
-
   filterFavByIngredient(ingredientName, ingredientRepo) {
   let foundIngredient = ingredientRepo.ingredients.find(ingredient => ingredient.name === ingredientName)
   let foundRecipes = this.favoriteRecipes.filter(recipe => {
@@ -32,7 +37,6 @@ class User {
   })
   return foundRecipes
   }
-
 }
 
 export default User;

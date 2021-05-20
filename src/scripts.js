@@ -16,6 +16,8 @@ const filterNameInput = document.getElementById('filterNameInput');
 const filterNameButton = document.getElementById('filterNameButton');
 const filterIngInput = document.getElementById('filterIngInput');
 const filterIngButton = document.getElementById('filterIngButton');
+const checkboxes = document.getElementsByName('tagBox');
+const tagSubmitButton = document.getElementById('tagSubmit');
 const filterSearchSection = document.getElementById('filterSearchSection')
 
 // global variables
@@ -25,6 +27,7 @@ const groceryStore = new GroceryStore(ingredientsData)
 // event listeners
 filterNameButton.addEventListener('click', showRecipesByName)
 filterIngButton.addEventListener('click', showRecipesByIng)
+tagSubmitButton.addEventListener('click', showRecipesByTags)
 
 // load page
 function updateRecipeCardSection(recipes) {
@@ -81,6 +84,17 @@ function showRecipesByName() {
 
 function showRecipesByIng() {
   updateRecipeCardSection(cookbook.filterByIngredient(filterIngInput.value, groceryStore))
+}
+
+function showRecipesByTags() {
+  const checkedTags = [];
+  checkboxes.forEach(box => {
+    if (box.checked) {
+      checkedTags.push(box.value)
+    }
+  });
+  updateRecipeCardSection(cookbook.filterByTag(checkedTags))
+  hide(filterSearchSection)
 }
 
 // helper functions

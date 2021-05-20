@@ -2,8 +2,16 @@ class Cookbook {
   constructor(recipes) {
     this.cookbook = recipes;
   }
-  filterByTag(tag) {
-    return this.cookbook.filter(item => item.tags.includes(tag));
+  filterByTag(...tags) {
+    const cookbookFiltered = [];
+    tags.flat().forEach(tag => {
+      this.cookbook.forEach(recipe => {
+      if (recipe.tags.includes(tag)) {
+        cookbookFiltered.push(recipe)
+      }
+      });
+    })
+    return cookbookFiltered
   }
   filterByName(recipeName) {
     return this.cookbook.filter(item => item.name.includes(recipeName));
