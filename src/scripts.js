@@ -1,5 +1,5 @@
 import './styles.css';
-import apiCalls from './apiCalls';
+import { users, recipes, ingredients } from './apiCalls';
 import Cookbook from '../src/classes/Cookbook';
 import Recipe from '../src/classes/Recipe';
 import recipeData from '../src/data/recipes';
@@ -7,6 +7,26 @@ import ingredientsData from '../src/data/ingredient';
 import GroceryStore from '../src/classes/GroceryStore'
 import '../assets/star.svg'
 import User from '../src/classes/User';
+
+let usersss = [];
+let recipesss = [];
+let ingredientsss = [];
+Promise.all([users(), recipes(), ingredients()]).then((values) => {
+
+  values[0].usersData.map(user => {
+    usersss.push(user)
+  })
+  
+  values[1].recipeData.map(recipe => {
+    recipesss.push(recipe)
+  })
+  console.log('FIRST', recipesss)
+
+  values[2].ingredientsData.map(ingredient => {
+    ingredientsss.push(ingredient)
+  })
+  return values;
+});
 
 // query selectors
 const recipeCardsSection = document.getElementById('recipeCards');
