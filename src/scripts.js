@@ -109,7 +109,7 @@ function showRecipeDetails(idNumber) {
   show(recipeDetailContainer)
   const matchingRecipe = cookbook.cookbook.find(recipe => recipe.id == idNumber)
   const instanceOfRecipe = new Recipe(matchingRecipe)
-  instanceOfRecipe.findIngredientNames(ingredientsData)
+  instanceOfRecipe.findIngredientNames(ingredientsss)
   recipeDetailSection.innerHTML += `
   <img src="${instanceOfRecipe.image}">
   <h3>${instanceOfRecipe.name}</h3>
@@ -121,7 +121,7 @@ function showRecipeDetails(idNumber) {
   <p>${instanceOfRecipe.returnDirections().join('</p><p>')}</p>
 
   <h3>Cost</h3>
-  <p>$${instanceOfRecipe.calculateCostOfIngredients(ingredientsData).toFixed(2)}</p>
+  <p>$${instanceOfRecipe.calculateCostOfIngredients(ingredientsss).toFixed(2)}</p>
   `
 }
 
