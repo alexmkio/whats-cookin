@@ -1,12 +1,17 @@
 import './styles.css';
-import apiCalls from './apiCalls';
-import Cookbook from '../src/classes/Cookbook';
+import { getIngredientsData, getRecipesData, getUsersData } from './apiCalls';
 import Recipe from '../src/classes/Recipe';
-import recipeData from '../src/data/recipes';
-import ingredientsData from '../src/data/ingredient';
+import Cookbook from '../src/classes/Cookbook';
 import GroceryStore from '../src/classes/GroceryStore'
-import '../assets/star.svg'
 import User from '../src/classes/User';
+import '../assets/star.svg'
+
+// global variables
+let ingredientsss = [];
+let recipesss = [];
+let usersss = [];
+let cookbook, groceryStore
+const user = new User();
 
 // query selectors
 const recipeCardsSection = document.getElementById('recipeCards');
@@ -31,11 +36,6 @@ const filterFavIngInput = document.getElementById('filterFavIngInput');
 const filterFavIngButton = document.getElementById('filterFavIngButton');
 const cookButton = document.getElementById('cookButton')
 
-// global variables
-const cookbook = new Cookbook(recipeData);
-const groceryStore = new GroceryStore(ingredientsData);
-const user = new User();
-
 // event listeners
 filterNameButton.addEventListener('click', showRecipesByName)
 filterIngButton.addEventListener('click', showRecipesByIng)
@@ -48,6 +48,30 @@ filterFavIngButton.addEventListener('click', showFavRecipesByIng)
 cookButton.addEventListener('click', showToCookRecipes)
 
 // load page
+window.onload = onStartup();
+
+function getData() {
+  return Promise.all([getIngredientsData(), getRecipesData(), getUsersData()])
+}
+
+function onStartup() {
+  getData()
+    .then(([ingredientsData, recipeData, usersData]) => {
+      ingredientsData.ingredientsData.forEach(ingredient => {
+        ingredientsss.push(ingredient)
+      })
+      recipeData.recipeData.forEach(recipe => {
+        recipesss.push(recipe)
+      })
+      usersData.usersData.forEach(user => {
+        usersss.push(user)
+      })
+      cookbook = new Cookbook(recipesss);
+      groceryStore = new GroceryStore(ingredientsss);
+      updateRecipeCardSection(cookbook.cookbook);
+    });
+}
+
 function updateRecipeCardSection(recipes) {
   recipeCardsSection.innerHTML = '';
   recipes.forEach(recipe => {
@@ -63,9 +87,6 @@ function updateRecipeCardSection(recipes) {
     </section>`
   })
 }
-
-window.addEventListener('load', updateRecipeCardSection(cookbook.cookbook));
-
 // functions
 recipeCardsSection.addEventListener('click', function(event) {
   if (event.target.id === 'imageSection') {
@@ -88,7 +109,7 @@ function showRecipeDetails(idNumber) {
   show(recipeDetailContainer)
   const matchingRecipe = cookbook.cookbook.find(recipe => recipe.id == idNumber)
   const instanceOfRecipe = new Recipe(matchingRecipe)
-  instanceOfRecipe.findIngredientNames(ingredientsData)
+  instanceOfRecipe.findIngredientNames(ingredientsss)
   recipeDetailSection.innerHTML += `
   <img src="${instanceOfRecipe.image}">
   <h3>${instanceOfRecipe.name}</h3>
@@ -100,7 +121,7 @@ function showRecipeDetails(idNumber) {
   <p>${instanceOfRecipe.returnDirections().join('</p><p>')}</p>
 
   <h3>Cost</h3>
-  <p>$${instanceOfRecipe.calculateCostOfIngredients(ingredientsData).toFixed(2)}</p>
+  <p>$${instanceOfRecipe.calculateCostOfIngredients(ingredientsss).toFixed(2)}</p>
   `
 }
 
@@ -144,12 +165,12 @@ function showAllRecipes() {
 }
 
 function showFavRecipesByName() {
-  let filteredRecipe = cookbook.filterByName(filterFavNameInput.value)
+  let filteredRecipe = user.filterFavByName(filterFavNameInput.value)
   showRecipeDetails(filteredRecipe[0].id)
 }
 
 function showFavRecipesByIng() {
-  updateRecipeCardSection(cookbook.filterByIngredient(filterFavIngInput.value, groceryStore))
+  updateRecipeCardSection(user.filterFavByIngredient(filterFavIngInput.value, groceryStore))
 }
 
 function showFavRecipesByTags() {
