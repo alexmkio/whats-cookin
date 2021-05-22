@@ -1,19 +1,16 @@
 import './styles.css';
 import { getIngredientsData, getRecipesData, getUsersData } from './apiCalls';
-import Cookbook from '../src/classes/Cookbook';
 import Recipe from '../src/classes/Recipe';
-import recipeData from '../src/data/recipes';
-import ingredientsData from '../src/data/ingredient';
+import Cookbook from '../src/classes/Cookbook';
 import GroceryStore from '../src/classes/GroceryStore'
-import '../assets/star.svg'
 import User from '../src/classes/User';
+import '../assets/star.svg'
 
 // global variables
 let ingredientsss = [];
 let recipesss = [];
 let usersss = [];
-const cookbook = new Cookbook(recipeData);
-const groceryStore = new GroceryStore(ingredientsData);
+let cookbook, groceryStore
 const user = new User();
 
 // query selectors
@@ -39,8 +36,6 @@ const filterFavIngInput = document.getElementById('filterFavIngInput');
 const filterFavIngButton = document.getElementById('filterFavIngButton');
 const cookButton = document.getElementById('cookButton')
 
-window.onload = onStartup();
-
 // event listeners
 filterNameButton.addEventListener('click', showRecipesByName)
 filterIngButton.addEventListener('click', showRecipesByIng)
@@ -53,7 +48,7 @@ filterFavIngButton.addEventListener('click', showFavRecipesByIng)
 cookButton.addEventListener('click', showToCookRecipes)
 
 // load page
-window.addEventListener('load', updateRecipeCardSection(cookbook.cookbook));
+window.onload = onStartup();
 
 function getData() {
   return Promise.all([getIngredientsData(), getRecipesData(), getUsersData()])
@@ -71,7 +66,9 @@ function onStartup() {
       usersData.usersData.forEach(user => {
         usersss.push(user)
       })
-      return ingredientsss, recipeData, usersData;
+      updateRecipeCardSection(recipesss);
+      cookbook = new Cookbook(recipesss);
+      groceryStore = new GroceryStore(ingredientsss);
     });
 }
 
