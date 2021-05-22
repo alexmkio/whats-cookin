@@ -66,9 +66,9 @@ function onStartup() {
       usersData.usersData.forEach(user => {
         usersss.push(user)
       })
-      updateRecipeCardSection(recipesss);
       cookbook = new Cookbook(recipesss);
       groceryStore = new GroceryStore(ingredientsss);
+      updateRecipeCardSection(cookbook.cookbook);
     });
 }
 
@@ -165,12 +165,12 @@ function showAllRecipes() {
 }
 
 function showFavRecipesByName() {
-  let filteredRecipe = cookbook.filterByName(filterFavNameInput.value)
+  let filteredRecipe = user.filterFavByName(filterFavNameInput.value)
   showRecipeDetails(filteredRecipe[0].id)
 }
 
 function showFavRecipesByIng() {
-  updateRecipeCardSection(cookbook.filterByIngredient(filterFavIngInput.value, groceryStore))
+  updateRecipeCardSection(user.filterFavByIngredient(filterFavIngInput.value, groceryStore))
 }
 
 function showFavRecipesByTags() {
