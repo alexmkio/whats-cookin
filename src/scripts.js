@@ -1,5 +1,5 @@
 import './styles.css';
-import { ingredients, recipes, users } from './apiCalls';
+import { getIngredientsData, getRecipesData, getUsersData } from './apiCalls';
 import Cookbook from '../src/classes/Cookbook';
 import Recipe from '../src/classes/Recipe';
 import recipeData from '../src/data/recipes';
@@ -8,6 +8,13 @@ import GroceryStore from '../src/classes/GroceryStore'
 import '../assets/star.svg'
 import User from '../src/classes/User';
 
+// global variables
+let ingredientsss = [];
+let recipesss = [];
+let usersss = [];
+const cookbook = new Cookbook(recipeData);
+const groceryStore = new GroceryStore(ingredientsData);
+const user = new User();
 
 // query selectors
 const recipeCardsSection = document.getElementById('recipeCards');
@@ -32,13 +39,7 @@ const filterFavIngInput = document.getElementById('filterFavIngInput');
 const filterFavIngButton = document.getElementById('filterFavIngButton');
 const cookButton = document.getElementById('cookButton')
 
-// global variables
-let ingredientsss = [];
-let recipesss = [];
-let usersss = [];
-const cookbook = new Cookbook(recipeData);
-const groceryStore = new GroceryStore(ingredientsData);
-const user = new User();
+window.onload = onStartup();
 
 // event listeners
 filterNameButton.addEventListener('click', showRecipesByName)
@@ -52,33 +53,27 @@ filterFavIngButton.addEventListener('click', showFavRecipesByIng)
 cookButton.addEventListener('click', showToCookRecipes)
 
 // load page
+window.addEventListener('load', updateRecipeCardSection(cookbook.cookbook));
 
-setTimeout(function(){ window.addEventListener('load', updateRecipeCardSection(waiting)) }, 1000);
-// window.addEventListener('load', updateRecipeCardSection(cookbook.cookbook));
+function getData() {
+  return Promise.all([getIngredientsData(), getRecipesData(), getUsersData()])
+}
 
-// window.onload = (event) => {
-//   console.log('1st', recipesss)
-//   getData()
-//   console.log('2nd', recipesss)
-//   updateRecipeCardSection(recipesss)
-// };
-
-Promise.all([ingredients(), recipes(), users()]).then((values) => {
-  values[0].ingredientsData.map(ingredient => {
-    ingredientsss.push(ingredient)
-  })
-  values[1].recipeData.map(recipe => {
-    recipesss.push(recipe)
-  })
-  values[2].usersData.map(user => {
-    usersss.push(user)
-  })
-  return values;
-});
-
-let waiting;
-setTimeout(function(){ waiting = recipesss }, 500);
-setTimeout(function(){ console.log('waiting', waiting) }, 1000);
+function onStartup() {
+  getData()
+    .then(([ingredientsData, recipeData, usersData]) => {
+      ingredientsData.ingredientsData.forEach(ingredient => {
+        ingredientsss.push(ingredient)
+      })
+      recipeData.recipeData.forEach(recipe => {
+        recipesss.push(recipe)
+      })
+      usersData.usersData.forEach(user => {
+        usersss.push(user)
+      })
+      return ingredientsss, recipeData, usersData;
+    });
+}
 
 function updateRecipeCardSection(recipes) {
   recipeCardsSection.innerHTML = '';

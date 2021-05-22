@@ -1,17 +1,8 @@
-export const ingredients = () => {
-  return fetch("http://localhost:3001/api/v1/ingredients")
+export const getIngredientsData = () => fetch("http://localhost:3001/api/v1/ingredients")
     .then(response => response.json())
-    .then(data => data)
-} 
 
-export const recipes = () => {
-  return fetch("http://localhost:3001/api/v1/recipes")
+export const getRecipesData = () => fetch("http://localhost:3001/api/v1/recipes")
     .then(response => response.json())
-    .then(data => data)
-} 
 
-export const users = () => {
-  return fetch("http://localhost:3001/api/v1/users")
+export const getUsersData = () => fetch("http://localhost:3001/api/v1/users")
     .then(response => response.json())
-    .then(data => data)
-} 
