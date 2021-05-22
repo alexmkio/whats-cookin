@@ -1,5 +1,5 @@
 import './styles.css';
-import { users, recipes, ingredients } from './apiCalls';
+import { ingredients, recipes, users } from './apiCalls';
 import Cookbook from '../src/classes/Cookbook';
 import Recipe from '../src/classes/Recipe';
 import recipeData from '../src/data/recipes';
@@ -8,25 +8,6 @@ import GroceryStore from '../src/classes/GroceryStore'
 import '../assets/star.svg'
 import User from '../src/classes/User';
 
-let usersss = [];
-let recipesss = [];
-let ingredientsss = [];
-Promise.all([users(), recipes(), ingredients()]).then((values) => {
-
-  values[0].usersData.map(user => {
-    usersss.push(user)
-  })
-  
-  values[1].recipeData.map(recipe => {
-    recipesss.push(recipe)
-  })
-  console.log('FIRST', recipesss)
-
-  values[2].ingredientsData.map(ingredient => {
-    ingredientsss.push(ingredient)
-  })
-  return values;
-});
 
 // query selectors
 const recipeCardsSection = document.getElementById('recipeCards');
@@ -52,6 +33,9 @@ const filterFavIngButton = document.getElementById('filterFavIngButton');
 const cookButton = document.getElementById('cookButton')
 
 // global variables
+let ingredientsss = [];
+let recipesss = [];
+let usersss = [];
 const cookbook = new Cookbook(recipeData);
 const groceryStore = new GroceryStore(ingredientsData);
 const user = new User();
@@ -68,6 +52,34 @@ filterFavIngButton.addEventListener('click', showFavRecipesByIng)
 cookButton.addEventListener('click', showToCookRecipes)
 
 // load page
+
+setTimeout(function(){ window.addEventListener('load', updateRecipeCardSection(waiting)) }, 1000);
+// window.addEventListener('load', updateRecipeCardSection(cookbook.cookbook));
+
+// window.onload = (event) => {
+//   console.log('1st', recipesss)
+//   getData()
+//   console.log('2nd', recipesss)
+//   updateRecipeCardSection(recipesss)
+// };
+
+Promise.all([ingredients(), recipes(), users()]).then((values) => {
+  values[0].ingredientsData.map(ingredient => {
+    ingredientsss.push(ingredient)
+  })
+  values[1].recipeData.map(recipe => {
+    recipesss.push(recipe)
+  })
+  values[2].usersData.map(user => {
+    usersss.push(user)
+  })
+  return values;
+});
+
+let waiting;
+setTimeout(function(){ waiting = recipesss }, 500);
+setTimeout(function(){ console.log('waiting', waiting) }, 1000);
+
 function updateRecipeCardSection(recipes) {
   recipeCardsSection.innerHTML = '';
   recipes.forEach(recipe => {
@@ -83,9 +95,6 @@ function updateRecipeCardSection(recipes) {
     </section>`
   })
 }
-
-window.addEventListener('load', updateRecipeCardSection(cookbook.cookbook));
-
 // functions
 recipeCardsSection.addEventListener('click', function(event) {
   if (event.target.id === 'imageSection') {

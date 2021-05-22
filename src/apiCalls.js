@@ -1,5 +1,5 @@
-export const users = () => {
-  return fetch("http://localhost:3001/api/v1/users")
+export const ingredients = () => {
+  return fetch("http://localhost:3001/api/v1/ingredients")
     .then(response => response.json())
     .then(data => data)
 } 
@@ -10,8 +10,8 @@ export const recipes = () => {
     .then(data => data)
 } 
 
-export const ingredients = () => {
-  return fetch("http://localhost:3001/api/v1/ingredients")
+export const users = () => {
+  return fetch("http://localhost:3001/api/v1/users")
     .then(response => response.json())
     .then(data => data)
 } 
