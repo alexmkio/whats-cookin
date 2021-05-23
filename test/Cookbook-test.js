@@ -110,8 +110,8 @@ describe('Cookbook', () => {
       return new Ingredient(
         ingredient.id,
         ingredient.name,
-        ingredient.estimatedCostInCents,
-      );
+        ingredient.estimatedCostInCents
+      )
     });
     ingredientRepo = new GroceryStore(ingredientList);
   })
