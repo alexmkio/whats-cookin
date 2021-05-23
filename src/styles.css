@@ -78,7 +78,11 @@ h4 {
   font-size: 1.8rem;
   font-weight: 300;
 }
-
+.tag-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #004c8c
+}
 
 .list-div {
   margin-left: 3rem;
@@ -104,4 +108,12 @@ h4 {
   border-radius: 10%;
   background-color: #58a5f0;
   color: #ffffff;
+}
+
+label {
+  color: #ffffff;
+}
+
+.filter-section, #filterFavoriteSection {
+  background-color: #004c8c
 }
