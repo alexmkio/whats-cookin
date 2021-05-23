@@ -81,6 +81,7 @@ h4 {
 .tag-container {
   display: flex;
   justify-content: space-around;
+  background-color: #004c8c
 }
 
 .list-div {
@@ -107,4 +108,12 @@ h4 {
   border-radius: 10%;
   background-color: #58a5f0;
   color: #ffffff;
+}
+
+label {
+  color: #ffffff;
+}
+
+.filter-section {
+  background-color: #004c8c
 }
