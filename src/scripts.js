@@ -1,15 +1,18 @@
 import './styles.css';
-import { getIngredientsData, getRecipesData, getUsersData } from './apiCalls';
+import {
+  getIngredientsData,
+  getRecipesData,
+  getUsersData
+} from './apiCalls';
 import Recipe from '../src/classes/Recipe';
 import Cookbook from '../src/classes/Cookbook';
 import GroceryStore from '../src/classes/GroceryStore'
 import User from '../src/classes/User';
-import '../assets/star.svg'
 
 // global variables
-let ingredientsss = [];
-let recipesss = [];
-let usersss = [];
+let ingredientsPortfolio = [];
+let recipesPortfolio = [];
+let usersPortfolio = [];
 let cookbook, groceryStore
 const user = new User();
 
@@ -58,16 +61,16 @@ function onStartup() {
   getData()
     .then(([ingredientsData, recipeData, usersData]) => {
       ingredientsData.ingredientsData.forEach(ingredient => {
-        ingredientsss.push(ingredient)
+        ingredientsPortfolio.push(ingredient)
       })
       recipeData.recipeData.forEach(recipe => {
-        recipesss.push(recipe)
+        recipesPortfolio.push(recipe)
       })
       usersData.usersData.forEach(user => {
-        usersss.push(user)
+        usersPortfolio.push(user)
       })
-      cookbook = new Cookbook(recipesss);
-      groceryStore = new GroceryStore(ingredientsss);
+      cookbook = new Cookbook(recipesPortfolio);
+      groceryStore = new GroceryStore(ingredientsPortfolio);
       updateRecipeCardSection(cookbook.cookbook);
     });
 }
@@ -93,11 +96,11 @@ recipeCardsSection.addEventListener('click', function(event) {
     showRecipeDetails(event.target.parentElement.id)
   }
   if (event.target.id === 'selectFavorite') {
-    let matchingRecipe = cookbook.cookbook.find(recipe => recipe.id == event.target.parentElement.parentElement.id)
+    let matchingRecipe = cookbook.cookbook.find(recipe => recipe.id === parseInt(event.target.parentElement.parentElement.id))
     user.determineFavorite(matchingRecipe)
   }
   if (event.target.id === 'selectToCook') {
-    let matchingRecipe = cookbook.cookbook.find(recipe => recipe.id == event.target.parentElement.parentElement.id)
+    let matchingRecipe = cookbook.cookbook.find(recipe => recipe.id === parseInt(event.target.parentElement.parentElement.id))
     user.addToMealList(matchingRecipe)
   }
 });
@@ -107,9 +110,9 @@ function showRecipeDetails(idNumber) {
   hide(filterFavoriteSection)
   hide(allRecipesSection)
   show(recipeDetailContainer)
-  const matchingRecipe = cookbook.cookbook.find(recipe => recipe.id == idNumber)
+  const matchingRecipe = cookbook.cookbook.find(recipe => recipe.id === parseInt(idNumber))
   const instanceOfRecipe = new Recipe(matchingRecipe)
-  instanceOfRecipe.findIngredientNames(ingredientsss)
+  instanceOfRecipe.findIngredientNames(ingredientsPortfolio)
   recipeDetailSection.innerHTML += `
   <img src="${instanceOfRecipe.image}">
   <h3>${instanceOfRecipe.name}</h3>
@@ -121,7 +124,7 @@ function showRecipeDetails(idNumber) {
   <p>${instanceOfRecipe.returnDirections().join('</p><p>')}</p>
 
   <h3>Cost</h3>
-  <p>$${instanceOfRecipe.calculateCostOfIngredients(ingredientsss).toFixed(2)}</p>
+  <p>$${instanceOfRecipe.calculateCostOfIngredients(ingredientsPortfolio).toFixed(2)}</p>
   `
 }
 
