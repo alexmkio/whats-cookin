@@ -3,7 +3,7 @@ This application was written by [Sydney Bear](https://github.com/sydnerd) and [A
 
 ## Abstract
 
-My Cookbook is an application that stores 50 recipes. The user can click the `star` to favorite recipes, or the `grill` to add recipes to a `To Cook` list. Users can filter recipes by tag, recipe name, or ingredient. To view recipe details, user can click on the image of the meal. 
+My Cookbook is an application that stores 50 recipes. The user can click the `star` to favorite recipes, or the `grill` to add recipes to a `To Cook` list. If the star and grill are clicked a second time, the recipe is removed from the respective list. Users can filter recipes by tag, recipe name, or ingredient. To view recipe details, user can click on the image of the meal. 
 
 ## Technologies Used
 
