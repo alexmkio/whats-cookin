@@ -55,6 +55,7 @@ nav {
 
 .list-section {
   display: flex;
+  justify-content: center;
 }
 
 h1 {
@@ -87,10 +88,11 @@ h4 {
 
 .list-div {
   margin-left: 3rem;
+  display: inline-flex;
 }
 
 .icon {
-  height: 6rem;
+  margin-bottom: 0;
 }
 
 .recipe-detail-container {
