@@ -114,6 +114,6 @@ label {
   color: #ffffff;
 }
 
-.filter-section {
+.filter-section, #filterFavoriteSection {
   background-color: #004c8c
 }
