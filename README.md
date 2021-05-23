@@ -1,22 +1,27 @@
-# What's Cookin'? Starter Kit 
+# My Cookbook
+This application was written by [Sydney Bear](https://github.com/sydnerd) and [Alex Kio](https://github.com/alexmkio), frontend engineering students at [Turing School of Software & Design](https://turing.edu/).
 
-The details of this project are outlined in the <a href="https://frontend.turing.io/projects/whats-cookin.html" target="\__blank">project spec</a>.
+## Abstract
 
-## Set Up 
+My Cookbook is an application that stores 50 recipes. The user can click the `star` to favorite recipes, or the `grill` to add recipes to a `To Cook` list. Users can filter recipes by tag, recipe name, or ingredient. To view recipe details, user can click on the image of the meal. 
 
-1. Within your group, decide on one person to have the project repository on their Github account. This person will *fork* this repository - on the top right corner of the page, click the fork button. 
-2. Both group members should then clone down the forked repository (make sure that everyone is added as a collaborator as well). Since you don't want your project to be named "whats-cookin-starter-kit", add an optional argument after the repo url when cloning. The command should look like this: `git clone [remote-address] [what you want to name the repo]`.
+## Technologies Used
+
+- Javascript
+- html
+- css
+- Mocha
+- Chai
+- GitHub workflow
+- fetch
+- TDD
+
+## Install/Set Up
+
+1.  *fork* this repository - on the top right corner of the page, click the fork button.
+2. Clone down the forked repository
 3. Once you have cloned the repo, change into the directory and install the project dependencies. Run `npm install` or `npm i` to install project dependencies.
 4. Run `npm start` and visit `localhost:8080`
-5. Make sure both members of your team are collaborators on the forked repo.
-
-## Testing 
-
-There is no boilerplate for testing in this starter-kit repo. You will need to set this up yourself. However, if you ran npm install, then the tooling you need to start testing is already installed (mocha and chai).
-
-## Linting Your Code 
-
-Run the command in your terminal npm run lint to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit, but that's ok - the linter is still running successfully.
-
-Your linter will look only at the JavaScript files you have within the src and the test directories.
-
+5. Fork and clone down this [repository] (https://github.com/turingschool/What-s-cookin--starter-kit-API.git)
+6. On a new tab, CD into it and then run `npm install`
+7. Run `npm install`
