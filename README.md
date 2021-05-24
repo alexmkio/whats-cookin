@@ -3,19 +3,22 @@
 My Cookbook is an application that shows a user recipes. The user can click the `star` to favorite recipes, or the `grill` to add recipes to a `To Cook` list. If the star and grill are clicked a second time on the recipe card, the recipe is removed from the respective list. To view the lists, the user can click on the icon next to the words `Favorites` and `To Cook`. Users can filter recipes by tag, recipe name, or ingredient. To view recipe details, user can click on the image of the meal. To go back to the main page, click `My Cookbook` at the top left hand corner of the page.
 
 **Main Page**
-![](assets/Main-page.gif)
+![](assets/Main.gif)
 
 **Add to Favorites**
-![](assets/AddToFavorites.gif)
+![](assets/AddFav.gif)
 
 **Add To Cook List**
-![](assets/ToCook.mp4)
+![](assets/ToCook.gif)
 
 **Search By Ingredient**
-![](assets/Search-ingredient.mp4)
+![](assets/FilterByIngredient.gif)
 
 **Search By Name**
-![](assets/Search-Name.mp4)
+![](assets/FilterByName.gif)
+
+**Search By Tag**
+![](assets/FilterbyTag.gif)
 
 ## Install
 
