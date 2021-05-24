@@ -4,7 +4,6 @@ import Recipe from '../src/classes/Recipe';
 import Cookbook from '../src/classes/Cookbook';
 import GroceryStore from '../src/classes/GroceryStore'
 import User from '../src/classes/User';
-import '../assets/star.svg'
 
 // global variables
 let ingredientsss = [];

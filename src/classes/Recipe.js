@@ -10,7 +10,7 @@ class Recipe {
     this.necessaryIngredients = [];
   };
   findIngredientNames(ingredients) {
-    this.ingredients.forEach(element => this.necessaryIngredientIDs.push(element.id));
+    this.ingredients.forEach(ingredient => this.necessaryIngredientIDs.push(ingredient.id));
     this.necessaryIngredients = ingredients.reduce((acc, item) => {
       if(this.necessaryIngredientIDs.includes(item.id)){
         acc.push(item.name);
