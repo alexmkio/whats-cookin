@@ -81,7 +81,7 @@ function updateRecipeCardSection(recipes) {
     recipeCardsSection.innerHTML +=
     `<section class="recipe-card" id="${recipe.id}">
     <div class="image-section" id="${recipe.id}">
-    <img class="recipe-image hover" id="imageSection" src="${recipe.image}">
+    <img class="recipe-image hover" id="imageSection" src="${recipe.image}" alt="Picture of ${recipe.name}">
     <h2 class="recipe-name" id="imageSection">${recipe.name}</h2>
     </div>
     <div class="icon-section">
@@ -118,7 +118,7 @@ function showRecipeDetails(idNumber) {
   const instanceOfRecipe = new Recipe(matchingRecipe);
   instanceOfRecipe.findIngredientNames(ingredientsPortfolio);
   recipeDetailSection.innerHTML +=
-  `<img src="${instanceOfRecipe.image}">
+  `<img src="${instanceOfRecipe.image}" alt="Picture of ${instanceOfRecipe.name}">
   <h3>${instanceOfRecipe.name}</h3>
   <h4>Ingredients</h4>
   <p>${instanceOfRecipe.necessaryIngredients.join(', ')}</p>
