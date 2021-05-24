@@ -1,9 +1,6 @@
 # My Cookbook
-This application was written by [Sydney Bear](https://github.com/sydnerd) and [Alex Kio](https://github.com/alexmkio), frontend engineering students at [Turing School of Software & Design](https://turing.edu/).
 
-## Abstract
-
-My Cookbook is an application that stores 50 recipes. The user can click the `star` to favorite recipes, or the `grill` to add recipes to a `To Cook` list. If the star and grill are clicked a second time on the recipe card, the recipe is removed from the respective list. To view the lists, the user can click on the icon next to the words `Favorites` and `To Cook`. Users can filter recipes by tag, recipe name, or ingredient. To view recipe details, user can click on the image of the meal. To go back to the main page, click `My Cookbook` at the top left hand corner of the page.
+My Cookbook is an application that shows a user recipes. The user can click the `star` to favorite recipes, or the `grill` to add recipes to a `To Cook` list. If the star and grill are clicked a second time on the recipe card, the recipe is removed from the respective list. To view the lists, the user can click on the icon next to the words `Favorites` and `To Cook`. Users can filter recipes by tag, recipe name, or ingredient. To view recipe details, user can click on the image of the meal. To go back to the main page, click `My Cookbook` at the top left hand corner of the page.
 
 **Main Page**
 ![](assets/Main-page.gif)
@@ -20,23 +17,29 @@ My Cookbook is an application that stores 50 recipes. The user can click the `st
 **Search By Name**
 ![](assets/Search-Name.mp4)
 
+## Install
+
+1. Clone down this 3rd party repository `git clone https://github.com/turingschool/What-s-cookin--starter-kit-API`
+   1. This API holds the data our project will fetch in order to populate the browser with info
+2. CD into your local clone `cd What-s-cookin--starter-kit-API\`
+3. Install project dependencies `npm install`
+4. Run `npm start`
+5. Clone down this repository `git clone https://github.com/sydnerd/whats-cookin`
+6. CD into your local clone `cd whats-cookin\`
+7. Install project dependencies `npm install`
+8. Run `npm start` and open `localhost:8080` in your preferred browser
+
 ## Technologies Used
 
-- Javascript
-- html
-- css
 - Mocha
 - Chai
-- GitHub workflow
-- fetch
-- TDD
+- Javascript
+- HTML
+- CSS
+- GitHub & Git
+- Get & Fetch Requests
+- Webpack
 
-## Install/Set Up
+## Contributors
 
-1.  *fork* this repository - on the top right corner of the page, click the fork button.
-2. Clone down the forked repository
-3. Once you have cloned the repo, change into the directory and install the project dependencies. Run `npm install` or `npm i` to install project dependencies.
-4. Run `npm start` and visit `localhost:8080`
-5. Fork and clone down this [repository](https://github.com/turingschool/What-s-cookin--starter-kit-API.git)
-6. On a new tab, CD into it and then run `npm install`
-7. Run `npm install`
+This application was written by [Sydney Bear](https://github.com/sydnerd) and [Alex Kio](https://github.com/alexmkio), Mod 2 frontend engineering students at [Turing School of Software & Design](https://turing.edu/).

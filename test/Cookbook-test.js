@@ -6,7 +6,7 @@ import GroceryStore from '../src/classes/GroceryStore';
 
 describe('Cookbook', () => {
 
-  let recipe1, recipe2, recipes, ingredientData, ingredientList, ingredientRepo
+  let recipe1, recipe2, recipes, ingredientData, ingredientList, ingredientRepo;
   beforeEach(() => {
     recipe1 = new Recipe({
       "id": 123456,
@@ -42,7 +42,7 @@ describe('Cookbook', () => {
         "indian",
         "chicken",
       ]
-    })
+    });
     recipe2 = new Recipe({
       "id": 987654,
       "image": "https://cdn.sallysbakingaddiction.com/wp-content/uploads/2018/10/moist-banana-bread.jpg",
@@ -77,7 +77,7 @@ describe('Cookbook', () => {
         "dessert",
         "breakfast",
       ]
-    })
+    });
     recipes = new Cookbook([recipe1, recipe2]);
     ingredientData = [
       {
@@ -111,10 +111,10 @@ describe('Cookbook', () => {
         ingredient.id,
         ingredient.name,
         ingredient.estimatedCostInCents
-      )
+      );
     });
     ingredientRepo = new GroceryStore(ingredientList);
-  })
+  });
 
   it('Should be a function', () => {
     expect(Cookbook).to.be.a('function');
@@ -141,5 +141,4 @@ describe('Cookbook', () => {
   it('Should filter list of recipes based on ingredient name', () => {
     expect(recipes.filterByIngredient('dried cranberries', ingredientRepo)).to.deep.equal([recipe1]);
   });
-
-})
+});

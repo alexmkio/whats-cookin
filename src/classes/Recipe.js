@@ -8,29 +8,31 @@ class Recipe {
     this.tags = thisRecipe.tags;
     this.necessaryIngredientIDs = [];
     this.necessaryIngredients = [];
-  }
+  };
   findIngredientNames(ingredients) {
-    this.ingredients.forEach(element => this.necessaryIngredientIDs.push(element.id));
+    this.ingredients.forEach(ingredient => this.necessaryIngredientIDs.push(ingredient.id));
     this.necessaryIngredients = ingredients.reduce((acc, item) => {
       if(this.necessaryIngredientIDs.includes(item.id)){
-        acc.push(item.name)
-      }
+        this.ingredients.forEach(ingredient => {
+          if (ingredient.id === item.id) {
+            acc.push(`${ingredient.quantity.amount} ${ingredient.quantity.unit} ${item.name}`);
+          }
+        })
+      };
       return acc;
     }, []);
-  }
+  };
   calculateCostOfIngredients(ingredients) {
     const totalCost = this.ingredients.reduce((acc, currentIngredient) => {
-      let foundIngredient = ingredients.find(ingredient => ingredient.id === currentIngredient.id)
-      acc += currentIngredient.quantity.amount * foundIngredient.estimatedCostInCents
-      return acc
-    }, 0)
-    return totalCost / 100
-  }
-
-
+      let foundIngredient = ingredients.find(ingredient => ingredient.id === currentIngredient.id);
+      acc += currentIngredient.quantity.amount * foundIngredient.estimatedCostInCents;
+      return acc;
+    }, 0);
+    return totalCost / 100;
+  };
   returnDirections() {
     return this.instructions.map(item => `${item.number}: ${item.instruction}`);
-  }
-}
+  };
+};
 
 export default Recipe;

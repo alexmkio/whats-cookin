@@ -5,7 +5,7 @@ import Ingredient from '../src/classes/Ingredient';
 import GroceryStore from '../src/classes/GroceryStore';
 
 describe('User', () => {
-  let aUser, recipe1, recipe2, ingredientData, ingredientList, ingredientRepo
+  let aUser, recipe1, recipe2, ingredientData, ingredientList, ingredientRepo;
   beforeEach(() => {
     aUser = new User();
     recipe1 = new Recipe({
