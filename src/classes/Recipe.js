@@ -13,7 +13,11 @@ class Recipe {
     this.ingredients.forEach(ingredient => this.necessaryIngredientIDs.push(ingredient.id));
     this.necessaryIngredients = ingredients.reduce((acc, item) => {
       if(this.necessaryIngredientIDs.includes(item.id)){
-        acc.push(item.name);
+        this.ingredients.forEach(ingredient => {
+          if (ingredient.id === item.id) {
+            acc.push(`${ingredient.quantity.amount} ${ingredient.quantity.unit} ${item.name}`);
+          }
+        })
       };
       return acc;
     }, []);
