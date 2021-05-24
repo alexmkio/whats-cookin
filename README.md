@@ -18,7 +18,7 @@ My Cookbook is an application that stores 50 recipes. The user can click the `st
 ![](assets/Search-ingredient.mp4)
 
 **Search By Name**
-![](assets/Search-Name.m4)
+![](assets/Search-Name.mp4)
 
 ## Technologies Used
 
