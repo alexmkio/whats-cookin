@@ -136,10 +136,12 @@ function showRecipeDetails(idNumber) {
 function showRecipesByName() {
   let filteredRecipe = cookbook.filterByName(filterNameInput.value);
   showRecipeDetails(filteredRecipe[0].id);
+  filterNameInput.value = '';
 };
 
 function showRecipesByIng() {
   updateRecipeCardSection(cookbook.filterByIngredient(filterIngInput.value, groceryStore));
+  filterIngInput.value = '';
 };
 
 function showRecipesByTags() {
@@ -175,10 +177,12 @@ function showAllRecipes() {
 function showFavRecipesByName() {
   let filteredRecipe = user.filterFavByName(filterFavNameInput.value);
   showRecipeDetails(filteredRecipe[0].id);
+  filterFavNameInput.value = '';
 };
 
 function showFavRecipesByIng() {
   updateRecipeCardSection(user.filterFavByIngredient(filterFavIngInput.value, groceryStore));
+  filterFavIngInput.value = '';
 };
 
 function showFavRecipesByTags() {
