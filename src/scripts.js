@@ -145,7 +145,7 @@ function showRecipesByName(event) {
   filterNameInput.value = '';
 };
 
-function showRecipesByIng() {
+function showRecipesByIng(event) {
   event.preventDefault();
   if (filterIngInput.value) {
     updateRecipeCardSection(cookbook.filterByIngredient(filterIngInput.value, groceryStore));
@@ -184,7 +184,7 @@ function showAllRecipes() {
   updateRecipeCardSection(cookbook.cookbook);
 };
 
-function showFavRecipesByName() {
+function showFavRecipesByName(event) {
   event.preventDefault();
   if (filterFavNameInput.value) {
     let filteredRecipe = user.filterFavByName(filterFavNameInput.value);
@@ -193,7 +193,7 @@ function showFavRecipesByName() {
   filterFavNameInput.value = '';
 };
 
-function showFavRecipesByIng() {
+function showFavRecipesByIng(event) {
   event.preventDefault();
   if (filterFavIngInput.value) {
     updateRecipeCardSection(user.filterFavByIngredient(filterFavIngInput.value, groceryStore));
