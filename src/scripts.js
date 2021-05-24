@@ -145,6 +145,7 @@ function showRecipesByTags() {
     if (box.checked) {
       checkedTags.push(box.value);
     };
+    box.checked = false;
   });
   updateRecipeCardSection(cookbook.filterByTag(checkedTags))
 };
@@ -186,6 +187,7 @@ function showFavRecipesByTags() {
     if (box.checked) {
       checkedTags.push(box.value);
     };
+    box.checked = false;
   });
   updateRecipeCardSection(user.filterFavByTag(checkedTags));
 };
