@@ -4,195 +4,197 @@
   <meta charset='UTF-8' />
   <meta http-equiv='X-UA-Compatible' content='IE=edge' />
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <title>My Cookbook</title>
-  </head>
-  <nav>
-    <h1 class="hover" id="title">My Cookbook</h1>
-    <section class="list-section">
-      <div class="list-div">
-        <svg class="icon hover" id="favoriteButton" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="#000000"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z"/></g></svg>
-        <h2>Favorites</h2>
-      </div>
-      <div class="list-div">
-        <svg class="icon hover" id="cookButton" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="#000000"><g><rect fill="none"/></g><g><g><path d="M17,22c1.66,0,3-1.34,3-3s-1.34-3-3-3c-1.3,0-2.4,0.84-2.82,2H9.14l1.99-3.06C11.42,14.98,11.71,15,12,15 s0.58-0.02,0.87-0.06l1.02,1.57c0.42-0.53,0.96-0.95,1.6-1.21l-0.6-0.93C17.31,13.27,19,10.84,19,8H5c0,2.84,1.69,5.27,4.12,6.37 l-3.95,6.08c-0.3,0.46-0.17,1.08,0.29,1.38h0c0.46,0.3,1.08,0.17,1.38-0.29l1-1.55h6.34C14.6,21.16,15.7,22,17,22z M17,18 c0.55,0,1,0.45,1,1c0,0.55-0.45,1-1,1s-1-0.45-1-1C16,18.45,16.45,18,17,18z M7.42,10h9.16c-0.77,1.76-2.54,3-4.58,3 S8.19,11.76,7.42,10z"/><path d="M9.41,7h1c0.15-1.15,0.23-1.64-0.89-2.96C9.1,3.54,8.84,3.27,9.06,2H8.07C7.86,3.11,8.1,4.05,8.96,4.96 C9.18,5.2,9.75,5.63,9.41,7z"/><path d="M11.89,7h1c0.15-1.15,0.23-1.64-0.89-2.96c-0.42-0.5-0.68-0.78-0.46-2.04h-0.99c-0.21,1.11,0.03,2.05,0.89,2.96 C11.67,5.2,12.24,5.63,11.89,7z"/><path d="M14.41,7h1c0.15-1.15,0.23-1.64-0.89-2.96C14.1,3.54,13.84,3.27,14.06,2h-0.99c-0.21,1.11,0.03,2.05,0.89,2.96 C14.18,5.2,14.75,5.63,14.41,7z"/></g></g></svg>
-        <h2>To Cook</h2>
-      </div>
-    </section>
-  </nav>
-  <section class="filter-section" id="filterSearchSection">
-    <section id="filterNameSection">
-      <label>Search By Recipe Name:</label>
-      <input type="text" id="filterNameInput">
-      <button class="hover submit" id="filterNameButton">Submit</button>
-    </section>
-    <section id="filterIngSection">
-      <label>Search By Ingredient:</label>
-      <input type="text" id="filterIngInput">
-      <button class="hover submit" id="filterIngButton">Submit</button>
-    </section>
-    <section class="tag-container">
-      <div>
-        <input type="checkbox" name="tagBox" value="breakfast">
-        <label for="breakfast">breakfast</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="brunch">
-        <label for="brunch">brunch</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="lunch">
-        <label for="lunch">lunch</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="dinner">
-        <label for="dinner">dinner</label>
-        <br>
-      </div>
-      <div>
-        <input type="checkbox" name="tagBox" value="morning meal">
-        <label for="morning meal">morning meal</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="side dish">
-        <label for="side dish">side dish</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="starter">
-        <label for="starter">starter</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="appetizer">
-        <label for="appetizer">appetizer</label>
-        <br>
-      </div>
-      <div>
-        <input type="checkbox" name="tagBox" value="snack">
-        <label for="snack">snack</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="hor d'oeuvre">
-        <label for="hor d'oeuvre">hor d'oeuvre</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="main dish">
-        <label for="main dish">main dish</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="main course">
-        <label for="main course">main course</label>
-        <br>
-      </div>
-      <div>
-        <input type="checkbox" name="tagBox" value="antipasti">
-        <label for="antipasti">antipasti</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="antipasto">
-        <label for="antipasto">antipasto</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="sauce">
-        <label for="sauce">sauce</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="dip">
-        <label for="dip">dip</label>
-        <br>
-      </div>
-      <div>
-        <input type="checkbox" name="tagBox" value="spread">
-        <label for="spread">spread</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="salad">
-        <label for="salad">salad</label>
-        <br>
-        <input type="checkbox" name="tagBox" value="condiment">
-        <label for="condiment">condiment</label>
-        <br>
-        <button class="hover submit" id="tagSubmit">Search By Tag</button>
-      </div>
-    </section>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>My Cookbook</title>
+</head>
+<nav>
+  <h1 class="hover" id="title">My Cookbook</h1>
+  <section class="list-section">
+    <div class="list-div">
+      <span class="icon hover material-icons" id="favoriteButton">star</span>
+      <h2>Favorites</h2>
+    </div>
+    <div class="list-div">
+      <span class="icon hover material-icons" id="cookButton">outdoor_grill</span>
+      <h2>To Cook</h2>
+    </div>
   </section>
-  <section id="filterFavoriteSection" class="hidden">
-    <section id="filterFavNameSection">
-      <label>Search Favorites By Recipe Name:</label>
-      <input type="text" id="filterFavNameInput">
-      <button class="hover submit" id="filterFavNameButton">Submit</button>
-    </section>
-    <section id="filterFavIngSection">
-      <label>Search Favorites By Ingredient:</label>
-      <input type="text" id="filterFavIngInput">
-      <button class="hover submit" id="filterFavIngButton">Submit</button>
-    </section>
-    <section class="tag-container">
-      <div>
-        <input type="checkbox" name="favTagBox" value="breakfast">
-        <label for="breakfast">breakfast</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="brunch">
-        <label for="brunch">brunch</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="lunch">
-        <label for="lunch">lunch</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="dinner">
-        <label for="dinner">dinner</label>
-        <br>
-      </div>
-      <div>
-        <input type="checkbox" name="favTagBox" value="morning meal">
-        <label for="morning meal">morning meal</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="side dish">
-        <label for="side dish">side dish</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="starter">
-        <label for="starter">starter</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="appetizer">
-        <label for="appetizer">appetizer</label>
-        <br>
-      </div>
-      <div>
-        <input type="checkbox" name="favTagBox" value="snack">
-        <label for="snack">snack</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="hor d'oeuvre">
-        <label for="hor d'oeuvre">hor d'oeuvre</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="main dish">
-        <label for="main dish">main dish</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="main course">
-        <label for="main course">main course</label>
-        <br>
-      </div>
-      <div>
-        <input type="checkbox" name="favTagBox" value="antipasti">
-        <label for="antipasti">antipasti</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="antipasto">
-        <label for="antipasto">antipasto</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="sauce">
-        <label for="sauce">sauce</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="dip">
-        <label for="dip">dip</label>
-        <br>
-      </div>
-      <div>
-        <input type="checkbox" name="favTagBox" value="spread">
-        <label for="spread">spread</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="salad">
-        <label for="salad">salad</label>
-        <br>
-        <input type="checkbox" name="favTagBox" value="condiment">
-        <label for="condiment">condiment</label>
-        <br>
-        <button class="hover submit" id="favTagSubmit">Search By Tag</button>
-      </div>
-    </section>
+</nav>
+<section class="filter-section" id="filterSearchSection">
+  <section id="filterNameSection">
+    <label>Search By Recipe Name:</label>
+    <input type="text" id="filterNameInput">
+    <button class="hover submit" id="filterNameButton">Submit</button>
   </section>
-  <body>
-    <section class="all-recipes-section" id="allRecipesSection">
-      <section class="recipe-cards" id="recipeCards"></section>
-    </section>
-    <section class="recipe-detail-container hidden" id="recipeDetailContainer">
-      <div class="recipe-detail-section" id="recipeDetailSection"></div>
-    </section>
-    <section class="hidden" id="favoritesSection"></section>
-    <section class="hidden" id="recipesToCookSection"></section>
-  </body>
+  <section id="filterIngSection">
+    <label>Search By Ingredient:</label>
+    <input type="text" id="filterIngInput">
+    <button class="hover submit" id="filterIngButton">Submit</button>
+  </section>
+  <section class="tag-container">
+    <div>
+      <input type="checkbox" name="tagBox" value="breakfast">
+      <label for="breakfast">breakfast</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="brunch">
+      <label for="brunch">brunch</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="lunch">
+      <label for="lunch">lunch</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="dinner">
+      <label for="dinner">dinner</label>
+      <br>
+    </div>
+    <div>
+      <input type="checkbox" name="tagBox" value="morning meal">
+      <label for="morning meal">morning meal</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="side dish">
+      <label for="side dish">side dish</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="starter">
+      <label for="starter">starter</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="appetizer">
+      <label for="appetizer">appetizer</label>
+      <br>
+    </div>
+    <div>
+      <input type="checkbox" name="tagBox" value="snack">
+      <label for="snack">snack</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="hor d'oeuvre">
+      <label for="hor d'oeuvre">hor d'oeuvre</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="main dish">
+      <label for="main dish">main dish</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="main course">
+      <label for="main course">main course</label>
+      <br>
+    </div>
+    <div>
+      <input type="checkbox" name="tagBox" value="antipasti">
+      <label for="antipasti">antipasti</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="antipasto">
+      <label for="antipasto">antipasto</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="sauce">
+      <label for="sauce">sauce</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="dip">
+      <label for="dip">dip</label>
+      <br>
+    </div>
+    <div>
+      <input type="checkbox" name="tagBox" value="spread">
+      <label for="spread">spread</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="salad">
+      <label for="salad">salad</label>
+      <br>
+      <input type="checkbox" name="tagBox" value="condiment">
+      <label for="condiment">condiment</label>
+      <br>
+      <button class="hover submit" id="tagSubmit">Search By Tag</button>
+    </div>
+  </section>
+</section>
+<section id="filterFavoriteSection" class="hidden">
+  <section id="filterFavNameSection">
+    <label>Search Favorites By Recipe Name:</label>
+    <input type="text" id="filterFavNameInput">
+    <button class="hover submit" id="filterFavNameButton">Submit</button>
+  </section>
+  <section id="filterFavIngSection">
+    <label>Search Favorites By Ingredient:</label>
+    <input type="text" id="filterFavIngInput">
+    <button class="hover submit" id="filterFavIngButton">Submit</button>
+  </section>
+  <section class="tag-container">
+    <div>
+      <input type="checkbox" name="favTagBox" value="breakfast">
+      <label for="breakfast">breakfast</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="brunch">
+      <label for="brunch">brunch</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="lunch">
+      <label for="lunch">lunch</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="dinner">
+      <label for="dinner">dinner</label>
+      <br>
+    </div>
+    <div>
+      <input type="checkbox" name="favTagBox" value="morning meal">
+      <label for="morning meal">morning meal</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="side dish">
+      <label for="side dish">side dish</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="starter">
+      <label for="starter">starter</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="appetizer">
+      <label for="appetizer">appetizer</label>
+      <br>
+    </div>
+    <div>
+      <input type="checkbox" name="favTagBox" value="snack">
+      <label for="snack">snack</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="hor d'oeuvre">
+      <label for="hor d'oeuvre">hor d'oeuvre</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="main dish">
+      <label for="main dish">main dish</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="main course">
+      <label for="main course">main course</label>
+      <br>
+    </div>
+    <div>
+      <input type="checkbox" name="favTagBox" value="antipasti">
+      <label for="antipasti">antipasti</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="antipasto">
+      <label for="antipasto">antipasto</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="sauce">
+      <label for="sauce">sauce</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="dip">
+      <label for="dip">dip</label>
+      <br>
+    </div>
+    <div>
+      <input type="checkbox" name="favTagBox" value="spread">
+      <label for="spread">spread</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="salad">
+      <label for="salad">salad</label>
+      <br>
+      <input type="checkbox" name="favTagBox" value="condiment">
+      <label for="condiment">condiment</label>
+      <br>
+      <button class="hover submit" id="favTagSubmit">Search By Tag</button>
+    </div>
+  </section>
+</section>
+
+<body>
+  <section class="all-recipes-section" id="allRecipesSection">
+    <section class="recipe-cards" id="recipeCards"></section>
+  </section>
+  <section class="recipe-detail-container hidden" id="recipeDetailContainer">
+    <div class="recipe-detail-section" id="recipeDetailSection"></div>
+  </section>
+  <section class="hidden" id="favoritesSection"></section>
+  <section class="hidden" id="recipesToCookSection"></section>
+</body>
 </html>
