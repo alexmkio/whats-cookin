@@ -22,6 +22,6 @@ My Cookbook is an application that stores 50 recipes. The user can click the `st
 2. Clone down the forked repository
 3. Once you have cloned the repo, change into the directory and install the project dependencies. Run `npm install` or `npm i` to install project dependencies.
 4. Run `npm start` and visit `localhost:8080`
-5. Fork and clone down this [repository] (https://github.com/turingschool/What-s-cookin--starter-kit-API.git)
+5. Fork and clone down this [repository](https://github.com/turingschool/What-s-cookin--starter-kit-API.git)
 6. On a new tab, CD into it and then run `npm install`
 7. Run `npm install`
