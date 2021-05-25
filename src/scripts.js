@@ -40,20 +40,20 @@ const filterFavIngSection = document.getElementById('filterFavIngSection');
 const cookButton = document.getElementById('cookButton')
 
 // event listeners
-filterNameSection.addEventListener('submit', function() {
+filterNameSection.addEventListener('submit', function(event) {
   showRecipesByName(event)
 });
-filterIngSection.addEventListener('submit', function() {
+filterIngSection.addEventListener('submit', function(event) {
   showRecipesByIng(event)
 });
 tagSubmitButton.addEventListener('click', showRecipesByTags);
 favTagSubmitButton.addEventListener('click', showFavRecipesByTags);
 favoriteButton.addEventListener('click', showFavoritedRecipes);
 title.addEventListener('click', showAllRecipes);
-filterFavNameSection.addEventListener('submit', function() {
+filterFavNameSection.addEventListener('submit', function(event) {
   showFavRecipesByName(event)
 });
-filterFavIngSection.addEventListener('submit', function() {
+filterFavIngSection.addEventListener('submit', function(event) {
   showFavRecipesByIng(event)
 });
 cookButton.addEventListener('click', showToCookRecipes);
