@@ -22,9 +22,9 @@ const allRecipesSection = document.getElementById('allRecipesSection');
 const recipeDetailContainer = document.getElementById('recipeDetailContainer');
 const recipeDetailSection = document.getElementById('recipeDetailSection');
 const filterNameInput = document.getElementById('filterNameInput');
-const filterNameButton = document.getElementById('filterNameButton');
+const filterNameSection = document.getElementById('filterNameSection');
 const filterIngInput = document.getElementById('filterIngInput');
-const filterIngButton = document.getElementById('filterIngButton');
+const filterIngSection = document.getElementById('filterIngSection');
 const checkboxes = document.getElementsByName('tagBox');
 const tagSubmitButton = document.getElementById('tagSubmit');
 const favCheckboxes = document.getElementsByName('favTagBox');
@@ -34,20 +34,28 @@ const filterFavoriteSection = document.getElementById('filterFavoriteSection');
 const favoriteButton = document.getElementById('favoriteButton');
 const title = document.getElementById('title');
 const filterFavNameInput = document.getElementById('filterFavNameInput');
-const filterFavNameButton = document.getElementById('filterFavNameButton');
+const filterFavNameSection = document.getElementById('filterFavNameSection');
 const filterFavIngInput = document.getElementById('filterFavIngInput');
-const filterFavIngButton = document.getElementById('filterFavIngButton');
+const filterFavIngSection = document.getElementById('filterFavIngSection');
 const cookButton = document.getElementById('cookButton')
 
 // event listeners
-filterNameButton.addEventListener('click', showRecipesByName);
-filterIngButton.addEventListener('click', showRecipesByIng);
+filterNameSection.addEventListener('submit', function(event) {
+  showRecipesByName(event)
+});
+filterIngSection.addEventListener('submit', function(event) {
+  showRecipesByIng(event)
+});
 tagSubmitButton.addEventListener('click', showRecipesByTags);
 favTagSubmitButton.addEventListener('click', showFavRecipesByTags);
 favoriteButton.addEventListener('click', showFavoritedRecipes);
 title.addEventListener('click', showAllRecipes);
-filterFavNameButton.addEventListener('click', showFavRecipesByName);
-filterFavIngButton.addEventListener('click', showFavRecipesByIng);
+filterFavNameSection.addEventListener('submit', function(event) {
+  showFavRecipesByName(event)
+});
+filterFavIngSection.addEventListener('submit', function(event) {
+  showFavRecipesByIng(event)
+});
 cookButton.addEventListener('click', showToCookRecipes);
 
 // load page
@@ -59,7 +67,7 @@ function getData() {
 
 function onStartup() {
   getData()
-    .then(([ingredientsData, recipeData, usersData]) => {
+  .then(([ingredientsData, recipeData, usersData]) => {
       ingredientsData.ingredientsData.forEach(ingredient => {
         ingredientsPortfolio.push(ingredient);
       });
@@ -81,7 +89,7 @@ function updateRecipeCardSection(recipes) {
     recipeCardsSection.innerHTML +=
     `<section class="recipe-card" id="${recipe.id}">
     <div class="image-section" id="${recipe.id}">
-    <img class="recipe-image hover" id="imageSection" src="${recipe.image}">
+    <img class="recipe-image hover" id="imageSection" src="${recipe.image}" alt="Picture of ${recipe.name}">
     <h2 class="recipe-name" id="imageSection">${recipe.name}</h2>
     </div>
     <div class="icon-section">
@@ -118,7 +126,7 @@ function showRecipeDetails(idNumber) {
   const instanceOfRecipe = new Recipe(matchingRecipe);
   instanceOfRecipe.findIngredientNames(ingredientsPortfolio);
   recipeDetailSection.innerHTML +=
-  `<img src="${instanceOfRecipe.image}">
+  `<img src="${instanceOfRecipe.image}" alt="Picture of ${instanceOfRecipe.name}">
   <h3>${instanceOfRecipe.name}</h3>
   <h4>Ingredients</h4>
   <p>${instanceOfRecipe.necessaryIngredients.join(', ')}</p>
@@ -128,14 +136,20 @@ function showRecipeDetails(idNumber) {
   <p>$${instanceOfRecipe.calculateCostOfIngredients(ingredientsPortfolio).toFixed(2)}</p>`
 };
 
-function showRecipesByName() {
-  let filteredRecipe = cookbook.filterByName(filterNameInput.value);
-  showRecipeDetails(filteredRecipe[0].id);
+function showRecipesByName(event) {
+  event.preventDefault();
+  if (filterNameInput.value) {
+    let filteredRecipe = cookbook.filterByName(filterNameInput.value);
+    showRecipeDetails(filteredRecipe[0].id);
+  }
   filterNameInput.value = '';
 };
 
-function showRecipesByIng() {
-  updateRecipeCardSection(cookbook.filterByIngredient(filterIngInput.value, groceryStore));
+function showRecipesByIng(event) {
+  event.preventDefault();
+  if (filterIngInput.value) {
+    updateRecipeCardSection(cookbook.filterByIngredient(filterIngInput.value, groceryStore));
+  }
   filterIngInput.value = '';
 };
 
@@ -145,6 +159,7 @@ function showRecipesByTags() {
     if (box.checked) {
       checkedTags.push(box.value);
     };
+    box.checked = false;
   });
   updateRecipeCardSection(cookbook.filterByTag(checkedTags))
 };
@@ -169,14 +184,20 @@ function showAllRecipes() {
   updateRecipeCardSection(cookbook.cookbook);
 };
 
-function showFavRecipesByName() {
-  let filteredRecipe = user.filterFavByName(filterFavNameInput.value);
-  showRecipeDetails(filteredRecipe[0].id);
+function showFavRecipesByName(event) {
+  event.preventDefault();
+  if (filterFavNameInput.value) {
+    let filteredRecipe = user.filterFavByName(filterFavNameInput.value);
+    showRecipeDetails(filteredRecipe[0].id);
+  }
   filterFavNameInput.value = '';
 };
 
-function showFavRecipesByIng() {
-  updateRecipeCardSection(user.filterFavByIngredient(filterFavIngInput.value, groceryStore));
+function showFavRecipesByIng(event) {
+  event.preventDefault();
+  if (filterFavIngInput.value) {
+    updateRecipeCardSection(user.filterFavByIngredient(filterFavIngInput.value, groceryStore));
+  }
   filterFavIngInput.value = '';
 };
 
@@ -186,6 +207,7 @@ function showFavRecipesByTags() {
     if (box.checked) {
       checkedTags.push(box.value);
     };
+    box.checked = false;
   });
   updateRecipeCardSection(user.filterFavByTag(checkedTags));
 };
